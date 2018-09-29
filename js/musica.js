@@ -38,6 +38,9 @@ function som(c){
      	musica[c].pause();
     	som(0);
     }
+    if(charStr=='a'&c=0){
+    	som(musica.lenght);
+    }
 }
 	musica[c].addEventListener('ended',function(){
 		if(c+1<musica.length){
