@@ -38,7 +38,7 @@ function som(c){
      	musica[c].pause();
     	som(0);
     }
-    if(charStr=='a'&c=0){
+    if(charStr=='a'&c==0){
     	som(musica.lenght);
     }
 }
