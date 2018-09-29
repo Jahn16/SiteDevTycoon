@@ -84,7 +84,7 @@ input[type="text"]{
     padding: 4%;
     box-sizing: border-box;
     transition: .3s;
-    border-color:black;
+    border-color:#24581e;
 }
 input[type="text"]:focus{
     border-color: #66ff33;
@@ -95,4 +95,13 @@ input[type="text"]:focus{
     height: 6vh;
     margin-left: 12%;
 }
-
+.btn-secondary {
+    color: #fff;
+    background-color: #058000;
+    border-color: #24581e;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #058000;
+    border-color: #24581e;
+}
