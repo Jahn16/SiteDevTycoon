@@ -39,7 +39,8 @@ function som(c){
     	som(0);
     }
     if(charStr=='a'&c==0){
-    	som(musica.lenght);
+    	musica[c].pause();
+    	som(musica.length-1);
     }
 }
 	musica[c].addEventListener('ended',function(){
