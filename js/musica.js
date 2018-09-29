@@ -1,4 +1,4 @@
-let musica = [new Audio('audio/shiawase.mp3'),new Audio('audio/infinitepower.mp3'),new Audio('audio/hours.mp3'),new Audio('audio/allme.mp3'),new Audio('audio/fly.mp3')];
+let musica = [new Audio('audio/shiawase.mp3'),new Audio('audio/infinitepower.mp3'),new Audio('audio/hours.mp3'),new Audio('audio/allme.mp3'),new Audio('audio/fly.mp3'),new Audio('audio/crossfire.mp3')];
 
 
 document.onkeypress = function(evt) {
