@@ -8,67 +8,236 @@
 let conhecimento =0;
 let potencial = 0;
 let metodo=0;
-let teclado = new Audio('audio/teclado.mp3');
-let beep = new Audio('audio/beep.wav');
+let teclado = new Audio('audio/sons/teclado.mp3');
+let beep = new Audio('audio/sons/beep.wav');
+let blop = new Audio('audio/sons/blop.mp3');
+let caixa = new Audio('audio/sons/dinheiro.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
-		localStorage.setItem('dinheiro',0);
+		localStorage.setItem('dinheiro',1000);
 		localStorage.setItem('conhecimento',0);
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 	
+	
 	});
-$('button').click(function(){
-	beep.play();
-})
+
 	$('#opcoes').on("click", "#desenvolver", function() {
+		
+		
 		somteclado();
 		limpa();
 		tema();
-		//Não feito
+		
 			$('#op3').click(function(){
 	
-				potencial=4200;
+				
 				publico();
-			
+					$('#pa2').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
+						$('#pa3').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
+				$('#pa1').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+							$('#enviar').click(function(){
+								teclado.pause();
+								let nota=8;
+								let nome = $('#nomedosite').val();
+								limpa();
+								din();
+								let ganho = Math.floor(Math.random() * 4000);
+								while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+								maisdinheiro(ganho);
+								barra(0);
+   			 					
+								setTimeout(function() {
+   								notadosite(nota,ganho,nome);
+   								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+								}, 20300);
+							
 
+
+							});
+						});
+				});
+					$('#pa2').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
+						$('#pa3').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
+			
 			});
 			$('#op2').click(function(){
 		
 			publico();
 
-			$('#pa1').click(function(){
+				$('#pa1').click(function(){
 			
-			limpa();
-			nomedosite();	
-			
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-				$('#enviar').click(function(){
-					
 					limpa();
-					din();
-					let ganho = Math.floor(Math.random() * 1300) + potencial;
-					 maisdinheiro(ganho);
-					$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-					$("#myModal").modal();
-					$('#titulo-modal').html(emp()+' faz sucesso!');
-					$('#texto-modal').html(usu()+' com seu novo site atraiu uma massa de pessoas.');
-					inicio();
-					teclado.pause();	
+					programacoes();	
+				
+						$('#linguagem').click(function(){
+							nomedosite();
 
+								$('#enviar').click(function(){
+							
+								teclado.pause();
+								let nota=8;
+								let nome = $('#nomedosite').val();
+								limpa();
+								din();
+								let ganho = Math.floor(Math.random() * 4000);
+								while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+								maisdinheiro(ganho);
+								barra(0);
+   			 					
+								setTimeout(function() {
+   								notadosite(nota,ganho,nome);
+   								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+								}, 20300);
+						});
 				});	
 		});
+					$('#pa2').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
+						$('#pa3').click(function(){
+					limpa();
+					programacoes();
+						$('#linguagem').click(function(){
+							nomedosite();
+								$('#enviar').click(function(){
+									teclado.pause();
+									let nota=8;
+									let nome = $('#nomedosite').val();
+									limpa();
+									din();
+									let ganho = Math.floor(Math.random() * 4000);
+									while(ganho<2000) ganho = Math.floor(Math.random() * 5000);
+									maisdinheiro(ganho);
+									barra(0);
+   			 					
+									setTimeout(function() {
+   									notadosite(nota,ganho,nome);
+   									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+									}, 20300);
+								});
+						});
+				});
 	});
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$('#op1').click(function(){
 		
 		limpa();
 		publico();
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 			
 				
 				$('#pa1').click(function(){
@@ -78,12 +247,12 @@ $('button').click(function(){
 
 				limpa();
 			programacoes();
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 				$('#linguagem').click(function(){
 						nomedosite();
 
 							
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 				$('#enviar').click(function(){
 					teclado.pause();
@@ -91,11 +260,24 @@ $('button').click(function(){
 					let nome = $('#nomedosite').val();
 					limpa();
 					din();
-					let ganho = Math.floor(Math.random() * 1300) + potencial;
+					let ganho = Math.floor(Math.random() * 5000);
+					while(ganho<3000){
+						ganho = Math.floor(Math.random() * 5000);
+					}
 					 maisdinheiro(ganho);
-					$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+					
+					
 						
-						notadosite(nota,ganho,nome);
+						
+   			 		barra(0);
+   			 		
+						setTimeout(function() {
+   							notadosite(nota,ganho,nome);
+   							$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+						}, 20300);
+  						 
+						
+							
 					
 				 	 });
 				});	
@@ -125,6 +307,8 @@ function din(){
 	$('#opcoes').html("<h1 id='dinheiro'></h1>");
 }
 function tema() {
+	beep.play();
+
 		$('#opcoes').html("<h1>Tema do Site:</h1>");
 	
 		$('#opcoes').append("<button class='btn btn-outline-primary' id='op1'>Raças Raras de Ovelhas</button>");
@@ -132,10 +316,11 @@ function tema() {
 		$('#opcoes').append("<button class='btn btn-outline-danger' id='op3'>Coding Dojo</button>");
 }
 	function publico(){
+		beep.play();
 		$('#opcoes').html("<h1>Público Alvo:</h1>");
 		$('#opcoes').append("<button class='btn btn-outline-primary' id='pa1'>Crianças</button>");
-		$('#opcoes').append("<button class='btn btn-outline-success' id='ap2'>Adolescentes</button>");
-		$('#opcoes').append("<button class='btn btn-outline-danger' id='ap3'>Adultos</button>");
+		$('#opcoes').append("<button class='btn btn-outline-success' id='pa2'>Adolescentes</button>");
+		$('#opcoes').append("<button class='btn btn-outline-danger' id='pa3'>Adultos</button>");
 	}
 function pegadinheiro(){
 	let money = localStorage.getItem('dinheiro');
@@ -164,6 +349,7 @@ function somteclado(){
 teclado.play();
 }
 function programacoes(){
+	beep.play();
 		$('#opcoes').html("<h1>Quais serão usados:</h1>");
 				$('#opcoes').append("<label class='container'>HTML<input type='checkbox' value='2000' checked><span class='checkmark'></span><label>");
 				if(metodo==0){
@@ -183,6 +369,9 @@ function programacoes(){
 				$('#opcoes').append('<button type="button" class="btn btn-info" id="linguagem">Próximo</button>');
 }
 function notadosite(nota,ganho,nome){
+
+	beep.play();
+
 					let nota1 = calculonota(nota);
 					let nota2 = calculonota(nota);
 					let nota3 = calculonota(nota);
@@ -224,14 +413,26 @@ function notadosite(nota,ganho,nome){
 					if(nota3==6)$('#texto-modal').append('<p>"Bom,mas pode melhorar ainda"</p>');
 					if(nota3==7)$('#texto-modal').append('<p>"Belo site, '+localStorage.getItem('empresa')+' fez um bom trabalho"</p>');
 					if(nota3==8)$('#texto-modal').append('<p>"Simplesmente me fascina,o site apresenta muito poucos defeitos"</p>');
-					if(nota3==9)$('#texto-modal').append('<p>"Perto da perfeição, '+localStorage.getItem('empresa')+' entrega um serviço muito bom."</p>'); 
+					if(nota3==9)$('#texto-modal').append('<p>"Perto da perfeição, '+localStorage.getItem('empresa')+' acertou em cheio."</p>'); 
 					if(nota3==10)$('#texto-modal').append('<p>"Extraordinário,se seu site estivesse em um jogo de simulação tiraria 10/10"</p>');
 					$('#texto-modal').append('<strong>IMDB</strong>')
 
 					$("#myModal").modal();
+					blop.play();
+
+					$('.modal').on('click','#fechar', function(){
+						
+					$('#titulo-modal').html('<h1>Fim do mês</h1>');
+   						$('#texto-modal').html('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+ganho+'</em><br>');
+   						$('#texto-modal').append('<p>Valor das contas: <em class="vermelho"> -$4000</em>'); 
+   						$("#myModal").modal();
+   						caixa.play();
+   						maisdinheiro(-4000);
+					});;
 					inicio();
 }
 function nomedosite(){
+	beep.play();
 	$('#opcoes').empty();
 	$('#opcoes').html('<h1>Nome do Site:</h1>');
 	$('#opcoes').append('<input type="text" id="nomedosite">');
@@ -246,3 +447,22 @@ function calculonota(nota){
 	}
 	return num;
 }
+function barra(c){
+	if(c<=100){
+	$('#progresso').html('<div class="progress" ><div class="progress-bar progress-bar-striped" role="progressbar" style="width: '+c+'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>');
+	 $("#modal1").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+	}
+	if(c==100){
+		 $('#modal1').modal('toggle');
+			
+		
+	}
+	setTimeout(function() {
+   barra(c+1);
+}, 200);
+	
+}
+
