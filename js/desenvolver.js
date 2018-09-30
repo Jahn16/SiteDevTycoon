@@ -272,9 +272,9 @@ $(document).ready(function() {
 						
 						
    			 		barra(0);
-   			 			loading.play();
+   			 			
 						setTimeout(function() {
-							loading.stop();
+							
    							notadosite(nota,ganho,nome);
    							$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 						}, 10300);
