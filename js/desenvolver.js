@@ -53,7 +53,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -76,7 +76,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -99,7 +99,7 @@ $(document).ready(function() {
 								setTimeout(function() {
    								notadosite(nota,ganho,nome);
    								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-								}, 20300);
+								}, 10300);
 							
 
 
@@ -125,7 +125,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -148,7 +148,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -181,7 +181,7 @@ $(document).ready(function() {
 								setTimeout(function() {
    								notadosite(nota,ganho,nome);
    								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-								}, 20300);
+								}, 10300);
 						});
 				});	
 		});
@@ -204,7 +204,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -227,7 +227,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -275,7 +275,7 @@ $(document).ready(function() {
 						setTimeout(function() {
    							notadosite(nota,ganho,nome);
    							$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-						}, 20300);
+						}, 10300);
   						 
 						
 							
@@ -463,7 +463,7 @@ function barra(c){
 	}
 	setTimeout(function() {
    barra(c+1);
-}, 200);
+}, 100);
 	
 }
 
