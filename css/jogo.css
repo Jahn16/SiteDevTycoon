@@ -3,10 +3,12 @@ body,html {
 	height:100%;
 }
 body {
-	background-image: url(../imgs/matrix3.gif);
+	background-image: url(../imgs/wpphacker.jpg);
 	background-size:contain;
 }
-
+html {
+        overflow: hidden;
+}
 #sprite {
 	margin-top: 3.2%;
 	margin-left: 2.3%;
@@ -96,4 +98,12 @@ input[type="text"]{
 input[type="text"]:focus{
     border-color: #66ff33;
     box-shadow: 0 0 8px 0 #66ff33;
+}
+#audio{
+	height: 20%;
+	background-color: white;
+	width: 200px;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
 }
