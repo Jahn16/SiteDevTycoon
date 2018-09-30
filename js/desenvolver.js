@@ -13,6 +13,7 @@ let teclado = new Audio('audio/sons/teclado.mp3');
 let beep = new Audio('audio/sons/beep.wav');
 let blop = new Audio('audio/sons/blop.mp3');
 let caixa = new Audio('audio/sons/dinheiro.mp3');
+let loading = new Audio('audio/sons/loading.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		localStorage.setItem('dinheiro',1000);
@@ -53,7 +54,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -76,7 +77,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -99,7 +100,7 @@ $(document).ready(function() {
 								setTimeout(function() {
    								notadosite(nota,ganho,nome);
    								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-								}, 20300);
+								}, 10300);
 							
 
 
@@ -125,7 +126,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -148,7 +149,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -181,7 +182,7 @@ $(document).ready(function() {
 								setTimeout(function() {
    								notadosite(nota,ganho,nome);
    								$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-								}, 20300);
+								}, 10300);
 						});
 				});	
 		});
@@ -204,7 +205,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -227,7 +228,7 @@ $(document).ready(function() {
 									setTimeout(function() {
    									notadosite(nota,ganho,nome);
    									$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-									}, 20300);
+									}, 10300);
 								});
 						});
 				});
@@ -271,11 +272,12 @@ $(document).ready(function() {
 						
 						
    			 		barra(0);
-   			 		
+   			 			
 						setTimeout(function() {
+							
    							notadosite(nota,ganho,nome);
    							$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-						}, 20300);
+						}, 10300);
   						 
 						
 							
@@ -416,7 +418,7 @@ function notadosite(nota,ganho,nome){
 					if(nota3==8)$('#texto-modal').append('<p>"Simplesmente me fascina,o site apresenta muito poucos defeitos"</p>');
 					if(nota3==9)$('#texto-modal').append('<p>"Perto da perfeição, '+localStorage.getItem('empresa')+' acertou em cheio."</p>'); 
 					if(nota3==10)$('#texto-modal').append('<p>"Extraordinário,se seu site estivesse em um jogo de simulação tiraria 10/10"</p>');
-					$('#texto-modal').append('<strong>IMDB</strong>')
+					$('#texto-modal').append('<strong>IMDB</strong>');
 
 					$("#myModal").modal();
 					blop.play();
@@ -449,7 +451,9 @@ function calculonota(nota){
 	return num;
 }
 function barra(c){
+	
 	if(c<=100){
+		loading.play();
 	$('#progresso').html('<div class="progress" ><div class="progress-bar progress-bar-striped" role="progressbar" style="width: '+c+'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>');
 	 $("#modal1").modal({
             backdrop: 'static',
@@ -458,12 +462,12 @@ function barra(c){
 	}
 	if(c==100){
 		 $('#modal1').modal('toggle');
-			
+		 loading.pause();
 		
 	}
 	setTimeout(function() {
    barra(c+1);
-}, 200);
+}, 100);
 	
 }
 
