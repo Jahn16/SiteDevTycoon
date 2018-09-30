@@ -99,7 +99,7 @@ input[type="text"]:focus{
     border-color: #66ff33;
     box-shadow: 0 0 8px 0 #66ff33;
 }
-<<<<<<< HEAD
+
 #audio{
 	height: 20%;
 	background-color: white;
@@ -108,11 +108,11 @@ input[type="text"]:focus{
 	position: absolute;
 	visibility: hidden;
 }
-=======
+
 .vermelho {
 	color:red;
 }
 .verde {
 	color:green;
 }
->>>>>>> 1b347538c91cc70a3104c97195d7411b49cbe618
+
