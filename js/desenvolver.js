@@ -49,7 +49,7 @@ $(document).ready(function() {
 									let ganho = Math.floor(Math.random() * nota*700);
 									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
 									maisdinheiro(ganho);
-									alert(notadosite(nota,ganho,nome)+1);
+									
 									barra(0,nota,ganho,nome);
    			 						
 								});
@@ -88,9 +88,9 @@ $(document).ready(function() {
 								limpa();
 								din();
 								let ganho = Math.floor(Math.random() * nota*700);
-									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
+								while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
 								maisdinheiro(ganho);
-							barra(0,nota,ganho,nome);
+								barra(0,nota,ganho,nome);
    			 					
 							
 
@@ -98,46 +98,7 @@ $(document).ready(function() {
 							});
 						});
 				});
-					$('#pa2').click(function(){
-					limpa();
-					programacoes();
-						$('#linguagem').click(function(){
-							nomedosite();
-								$('#enviar').click(function(){
-									teclado.pause();
-									let nota=8;
-									let nome = $('#nomedosite').val();
-									limpa();
-									din();
-									let ganho = Math.floor(Math.random() * nota*700);
-									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
-									
-   			 					
-									barra(0,nota,ganho,nome);
-   			 					
-								});
-						});
-				});
-						$('#pa3').click(function(){
-					limpa();
-					programacoes();
-						$('#linguagem').click(function(){
-							nomedosite();
-								$('#enviar').click(function(){
-									teclado.pause();
-									let nota=8;
-									let nome = $('#nomedosite').val();
-									limpa();
-									din();
-									let ganho = Math.floor(Math.random() * nota*700);
-									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
-									barra(0,nota,ganho,nome);
-   			 					
-								});
-						});
-				});
+				
 			
 			});
 			$('#op2').click(function(){
@@ -155,7 +116,7 @@ $(document).ready(function() {
 								$('#enviar').click(function(){
 							
 								teclado.pause();
-								let nota=8;
+								let nota=5;
 								let nome = $('#nomedosite').val();
 								limpa();
 								din();
@@ -175,7 +136,7 @@ $(document).ready(function() {
 							nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=8;
+									let nota=6;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -198,7 +159,7 @@ $(document).ready(function() {
 							nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=8;
+									let nota=7;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -222,44 +183,65 @@ $(document).ready(function() {
 			
 				
 				$('#pa1').click(function(){
-					
-				
-				
+					limpa();
+					programacoes();
 
-				limpa();
-			programacoes();
-
-				$('#linguagem').click(function(){
+					$('#linguagem').click(function(){
 						nomedosite();
 
-							
-
-
-				$('#enviar').click(function(){
-					teclado.pause();
-					let nota=8;
-					let nome = $('#nomedosite').val();
+						$('#enviar').click(function(){
+							teclado.pause();
+							let nota=8;
+							let nome = $('#nomedosite').val();
+							limpa();
+							din();
+							let ganho = Math.floor(Math.random() * nota*700);
+							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
+							maisdinheiro(ganho);
+							barra(0,nota,ganho,nome);
+   			 				});
+						});	
+					});
+					$('#pa2').click(function(){
 					limpa();
-					din();
-					let ganho = Math.floor(Math.random() * nota*700);
-					while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-					
-					 maisdinheiro(ganho);
-					
-					
-						
-						
-   			 		barra(0,nota,ganho,nome);
-   			 		
-						
-  						 
-						
-							
-					
-				 	 });
-				});	
-		});
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
+					programacoes();
+
+					$('#linguagem').click(function(){
+						nomedosite();
+
+						$('#enviar').click(function(){
+							teclado.pause();
+							let nota=6;
+							let nome = $('#nomedosite').val();
+							limpa();
+							din();
+							let ganho = Math.floor(Math.random() * nota*700);
+							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
+							maisdinheiro(ganho);
+							barra(0,nota,ganho,nome);
+   			 				});
+						});	
+					});
+					$('#pa3').click(function(){
+					limpa();
+					programacoes();
+
+					$('#linguagem').click(function(){
+						nomedosite();
+
+						$('#enviar').click(function(){
+							teclado.pause();
+							let nota=5;
+							let nome = $('#nomedosite').val();
+							limpa();
+							din();
+							let ganho = Math.floor(Math.random() * nota*700);
+							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
+							maisdinheiro(ganho);
+							barra(0,nota,ganho,nome);
+   			 				});
+						});	
+					});
 });
 
 
@@ -407,7 +389,7 @@ function notadosite(nota,ganho,nome){
    							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+(ganho-4000)+'</em></p>');
    						}
    						else {
-   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000-ganho)+'</em>');
+   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000-ganho)+'</em></p>');
    						}
    						$("#myModal").modal();
    						caixa.play();
