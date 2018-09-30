@@ -97,14 +97,3 @@ input[type="text"]:focus{
     border-color: #66ff33;
     box-shadow: 0 0 8px 0 #66ff33;
 }
-#musica{
-	width: 2%;
-	z-index: 1;
-	background-color: rgba(0,110,10,0.1);
-	position: absolute;
-}
-#musica button img{
-	height: 100%;
-	width: 100%;
-
-}
