@@ -190,7 +190,7 @@ function notadosite(nota,ganho,nome){
 					$('#texto-modal').html('<h2><strong>'+nota1+'<strong><h2>');
 					if(nota1==0)$('#texto-modal').append('<p>"Site horroso,mal programado e com pessíma escolha de tema"</p>');
 					if(nota1==1)$('#texto-modal').append('<p>"Muito ruim,perda de tempo"</p>');
-					if(nota1==2)$('#texto-modal').append('<p>"Terrível,muito há melhorar"</p>');
+					if(nota1==2)$('#texto-modal').append('<p>"Terrível,muito a melhorar"</p>');
 					if(nota1==3)$('#texto-modal').append('<p>"Deixa a desejar,pra falar o mínimo"</p>');
 					if(nota1==4)$('#texto-modal').append('<p>"Site muito mediano,nada demais"</p>');
 					if(nota1==5)$('#texto-modal').append('<p>"Nem ruim, nem bom"</p>');
