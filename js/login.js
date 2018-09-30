@@ -12,6 +12,6 @@ $('#controles').on("click", "#login-pronto", function(e) {
 	let empresa = $('#empresa').val();
 	localStorage.setItem('usuario',usuario);
 	localStorage.setItem('empresa',empresa);
-	$('#controles').html('<h1>Site Development</h1><a href="jogo.html"><button type="button" class="btn btn-outline-success inicio">Jogar</button></a> <button class="btn btn-outline-success inicio" id="logar">Logar</button><button type="button" class="btn btn-outline-success inicio" data-toggle="modal" data-target="#exampleModal">Regras</button>');
+	$('#controles').html('<h1>Site Development</h1><a href="jogo.html"><button type="button" class="btn btn-outline-success inicio">Jogar</button></a> <button class="btn btn-outline-success inicio" id="logar">Logar</button><button id="botao" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" ><img src="imgs/info2.png"></button>');
 	
 });
