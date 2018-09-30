@@ -97,3 +97,9 @@ input[type="text"]:focus{
     border-color: #66ff33;
     box-shadow: 0 0 8px 0 #66ff33;
 }
+.vermelho {
+	color:red;
+}
+.verde {
+	color:green;
+}

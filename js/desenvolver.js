@@ -416,7 +416,7 @@ function notadosite(nota,ganho,nome){
 					if(nota3==8)$('#texto-modal').append('<p>"Simplesmente me fascina,o site apresenta muito poucos defeitos"</p>');
 					if(nota3==9)$('#texto-modal').append('<p>"Perto da perfeição, '+localStorage.getItem('empresa')+' acertou em cheio."</p>'); 
 					if(nota3==10)$('#texto-modal').append('<p>"Extraordinário,se seu site estivesse em um jogo de simulação tiraria 10/10"</p>');
-					$('#texto-modal').append('<strong>IMDB</strong>')
+					$('#texto-modal').append('<strong>IMDB</strong>');
 
 					$("#myModal").modal();
 					blop.play();
