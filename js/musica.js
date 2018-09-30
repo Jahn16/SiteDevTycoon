@@ -1,4 +1,4 @@
-let musica = [new Audio('audio/shiawase.mp3'),new Audio('audio/infinitepower.mp3'),new Audio('audio/hours.mp3'),new Audio('audio/allme.mp3'),new Audio('audio/fly.mp3')];
+let musica = [new Audio('audio/shiawase.mp3'),new Audio('audio/infinitepower.mp3'),new Audio('audio/hours.mp3'),new Audio('audio/allme.mp3'),new Audio('audio/fly.mp3'),new Audio('audio/crossfire.mp3')];
 
 
 document.onkeypress = function(evt) {
@@ -37,6 +37,10 @@ function som(c){
     if(charStr == 'd'&c+1==musica.length){
      	musica[c].pause();
     	som(0);
+    }
+    if(charStr=='a'&c==0){
+    	musica[c].pause();
+    	som(musica.length-1);
     }
 }
 	musica[c].addEventListener('ended',function(){

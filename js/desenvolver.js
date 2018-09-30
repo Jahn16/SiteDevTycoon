@@ -9,6 +9,7 @@ let conhecimento =0;
 let potencial = 0;
 let metodo=0;
 let teclado = new Audio('audio/teclado.mp3');
+let beep = new Audio('audio/beep.wav');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		localStorage.setItem('dinheiro',0);
@@ -17,8 +18,11 @@ $(document).ready(function() {
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 	
 	});
-
+$('button').click(function(){
+	beep.play();
+})
 	$('#opcoes').on("click", "#desenvolver", function() {
+		somteclado();
 		limpa();
 		tema();
 		//Não feito
@@ -82,6 +86,7 @@ $(document).ready(function() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 				$('#enviar').click(function(){
+					teclado.pause();
 					let nota=8;
 					let nome = $('#nomedosite').val();
 					limpa();
@@ -151,7 +156,7 @@ function emp(){
 function usu () {
 	return localStorage.getItem('usuario');
 }
-function som(){
+function somteclado(){
 	teclado.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
