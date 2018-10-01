@@ -1,10 +1,7 @@
 @keyframes backgroundChange{
     100% { background-image: url(../imgs/wpplulu2.jpg) }
     0%{ background-image: url(../imgs/wpplulu2.1.jpg) }
-
-
 }
-
 body,html {
 	margin:0;
 	height:100%;
@@ -28,7 +25,21 @@ html {
     margin-top: 10%;
     padding-top: 2%;
     border: solid green 1px;
-    
+    position: relative;
+    transform: scale(0.9);
+    transition: .1s;
+    box-shadow: 0 2px 4px #000;
+}
+#controles:hover{
+    transform: scale(1);
+    box-shadow: 0 2px 4px #000, 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+}
+#controles:hover:before, #controles:hover:after{
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #ddd 40%, transparent 40%);
 }
 .inicio {
 	display: block;
