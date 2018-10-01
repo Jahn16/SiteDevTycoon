@@ -4,7 +4,8 @@ body,html {
 }
 body {
 	background-image: url(../imgs/wpplulu2.jpg);
-	background-size:contain;
+    background-size: 110% 110%;
+    background-repeat: no-repeat;
 }
 html {
         overflow: hidden;
