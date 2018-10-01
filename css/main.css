@@ -1,3 +1,10 @@
+@keyframes backgroundChange{
+    100% { background-image: url(../imgs/wpplulu2.jpg) }
+    0%{ background-image: url(../imgs/wpplulu2.1.jpg) }
+
+
+}
+
 body,html {
 	margin:0;
 	height:100%;
@@ -5,6 +12,7 @@ body,html {
 body {
 	background-image: url(../imgs/wpplulu2.jpg);
     background-size: 110% 110%;
+    animation: backgroundChange 4s linear 0s infinite alternate-reverse;
     background-repeat: no-repeat;
 }
 html {
