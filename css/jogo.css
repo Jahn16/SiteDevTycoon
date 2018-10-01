@@ -3,22 +3,31 @@ body,html {
 	height:100%;
 }
 body {
-	background-image: url(../imgs/matrix.jpg);
-	background-size:contain;
+	background-image: url(../imgs/aa.gif);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 html {
-        overflow: hidden;
+    overflow: hidden;
 }
 #sprite {
-	margin-top: 3.2%;
-	margin-left: 2.3%;
+	margin-left: 50%;
+	margin-top: 1%;
 	position: absolute;
 	height: 86.25vh;
 	width: 45%;
 }
 #avatar {
+	margin: 0;
+	border-radius: 1%;
 	height: 100%;
 	width: 100%;
+	transform: scale(0.5);
+}
+#avatar:hover{
+	transform: scale(0.8);
+	transition: .8s;
+
 }
 #transparente{
 	background-color: rgba(24,24,24,0.6);
@@ -27,13 +36,29 @@ html {
 	width: 100%;
 }
 #opcoes{
+	display: block;
 	text-align: center;
 	width: 45%;
-	margin-left: 50%;
-	margin-top: 3.2%;
+	margin-left: 10%;
+	margin-top: 1%;
 	height: 86%;
 	padding-top: 2.3%;
 	background-color: rgba(255,255,255,0.8);
+	position: relative;
+    transform: scale(0.9);
+    transition: .1s;
+    box-shadow: 0 2px 4px #000;
+}
+#opcoes:hover{
+    transform: scale(1);
+    box-shadow: 0 2px 4px #000, 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+}
+#opcoes:hover:before, #controles:hover:after{
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, #ddd 40%, transparent 40%);
 }
 #opcoes h1 {
 	margin-bottom: 10%;
