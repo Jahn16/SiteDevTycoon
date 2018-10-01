@@ -118,7 +118,7 @@ input[type="text"]:focus{
 .toggle-nav{
 	width: 50px;
 	height: 50px;
-	background-image: url('../imgs/hambmenu.png');
+	background-image: url('../imgs/aaa.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: center;
@@ -132,14 +132,13 @@ input[type="text"]:focus{
 	top: 52px;
 	width: 225px;
 	height: 150px;
-	padding: 0 5px;
 	background-color: white;
 	visibility: hidden;
-
 }
 .nav-sidebar li{
 	text-decoration: none;
 	padding-top: 15px;
+
 
 }
 .nav-sidebar ul li{
@@ -147,4 +146,8 @@ input[type="text"]:focus{
 	line-height: 20px;
 	list-style: none;
 	white-space: nowrap;
+}
+.nav-sidebar ul{
+	padding-top: 15px;
+	padding-left: 20px;
 }
