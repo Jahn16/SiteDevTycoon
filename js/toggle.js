@@ -1,20 +1,56 @@
-let navStatus = false;
+$('#transparente').on('click','.fechado',function abre(){
+	$('#menu').fadeIn();
+	$('#engrenagem').addClass('aberto');
+	$('#engrenagem').removeClass('fechado');
+	$('#engrenagem').css("background-image"," url('imgs/engine2.png')");
+	});
+$('#transparente').on('click','.aberto',function fecha(){
+	
+	$('#menu').fadeOut();
+	$('#engrenagem').addClass('fechado');
+	$('#engrenagem').removeClass('aberto');
+	$('#engrenagem').css("background-image"," url('imgs/engine.png')");
 
-let nav = function() {
-	let getSidebar = document.querySelector(".nav-sidebar");
-	let getSidebarUl = document.querySelector(".nav-sidebar ul");
+	 });
+$(document).mouseup(function (e){
 
-	if(navStatus === false){
+	 
 
-		getSidebarUl.style.visibility = "visible";
-		getSidebar.style.width = "274px";
+	if (!$("#controles-menu").is(e.target) && $("#controles-menu").has(e.target).length === 0){
 
+		$('#menu').fadeOut();
+	$('#engrenagem').addClass('fechado');
+	$('#engrenagem').removeClass('aberto');
+	$('#engrenagem').css("background-image"," url('imgs/engine.png')");
+	
 	}
-	if(navStatus === true){
-
-
-	}
-
-
-
-}
+}); 
+$('#ativar').click(function(){
+	let c=0;
+	musica[c].play();
+	$('.desligado').removeClass('desligado');
+		$('#menu').on('click','#proxima',function(){
+			if(c!=musica.length-1){ 
+			musica[c].pause();
+			c++;
+			musica[c].play();
+		}
+		else {
+			musica[c].pause();
+			c=0;
+			musica[c].play();
+		}
+		});
+		$('#menu').on('click','#anterior',function(){
+		if(c!=0){
+		musica[c].pause();
+		c--;
+		musica[c].play();
+		}
+		else {
+			musica[c].pause();
+			c=musica.length-1;
+			musica[c].play();
+		}
+});
+});
