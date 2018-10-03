@@ -206,6 +206,11 @@ input[type="text"]:focus{
 .desligado {
 	color:gray;
 }
+#myModal img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);

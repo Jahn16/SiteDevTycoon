@@ -25,7 +25,28 @@ $(document).ready(function() {
 	});
 
 	$('#opcoes').on("click", "#desenvolver", function() {
-		
+		if (!localStorage.getItem('d')) {
+			localStorage.setItem('d',1);
+			$('#titulo-modal').html('Tutorial Desenvolver');
+			$('#texto-modal').html('<p>Agora você é um <strong>Web Developer!</strong><br>Use todos seus conhecimentos de HTML , CSS , JavaScript e Marketing para criar um site interresante. ');
+			$('#fechar').html('Próximo');
+			$('#myModal').modal();
+			$('#myModal').on('click','#fechar',function(){
+				$('#titulo-modal').html('Tutorial Desenvolver');
+				$('#texto-modal').html('<p>Escolha o tema que você achar mais legal.O tema em si não te dá mais ou menos dinheiro mas sim suas decisões com base nele.</p><img src="imgs/temas.png">');
+				$('#myModal').modal();
+				$('#myModal').on('click','#fechar',function(){
+				$('#texto-modal').html('<p>Agora tendo em vista o tema que você escolheu e seus conhecimentos muito avançados de Marketing escolha o público que mais se interessaria no seu site.</p><img src="imgs/pa.png">');
+				$('#myModal').modal();
+					$('#myModal').on('click','#fechar',function(){
+						$('#fechar').html('Fechar');
+						$('#texto-modal').html('<p>Na etapa final,como um bom Programmer que é ,deverá selecionar as linguagens de programação usadas no seu site.<br>Por padrão,você só sabe HTML mas na aba <strong>Aprender</strong> no menu inicial é possível aprender CSS e JavaScript.</p><img src="imgs/lin.png">');
+						$('#myModal').modal();
+
+					});
+			});
+			});
+		}
 		
 		somteclado();
 		limpa();
@@ -310,7 +331,7 @@ teclado.play();
 function programacoes(){
 	beep.play();
 		$('#opcoes').html("<h1>Quais serão usados:</h1>");
-				$('#opcoes').append("<label class='container'>HTML<input type='checkbox' value='2000' checked><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container'>HTML<input type='checkbox' value='2000' checked required><span class='checkmark'></span><label>");
 				if(metodo==0){
 				$('#opcoes').append("<label class='container' >CSS<input type='checkbox' value='4000' disabled><span class='checkmark'></span><label>");
 			}
