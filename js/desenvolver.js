@@ -17,10 +17,10 @@ let loading = new Audio('audio/sons/loading.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		localStorage.setItem('dinheiro',10000);
-		localStorage.setItem('conhecimento',0);
+		localStorage.setItem('conhecimento','html');
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-	
+	//maisdinheiro(+1000000);
 	
 	});
 
@@ -60,10 +60,16 @@ $(document).ready(function() {
 					limpa();
 					programacoes();
 						$('#linguagem').click(function(){
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+							vphp = confere(vphp);
 							nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=7;
+									let nota=7+vcss+vjs+vphp;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -80,10 +86,16 @@ $(document).ready(function() {
 					limpa();
 					programacoes();
 						$('#linguagem').click(function(){
-							nomedosite();
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+						vphp = confere(vphp);
+								nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=6;
+									let nota=6+vcss+vjs+vphp;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -101,10 +113,16 @@ $(document).ready(function() {
 					limpa();
 					programacoes();
 						$('#linguagem').click(function(){
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+							vphp = confere(vphp);
 							nomedosite();
 							$('#enviar').click(function(){
 								teclado.pause();
-								let nota=5;
+								let nota=5+vcss+vjs+vphp;
 								let nome = $('#nomedosite').val();
 								limpa();
 								din();
@@ -132,12 +150,18 @@ $(document).ready(function() {
 					programacoes();	
 				
 						$('#linguagem').click(function(){
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+							vphp = confere(vphp);
 							nomedosite();
 
 								$('#enviar').click(function(){
 							
 								teclado.pause();
-								let nota=5;
+								let nota=5+vcss+vjs+vphp;
 								let nome = $('#nomedosite').val();
 								limpa();
 								din();
@@ -154,10 +178,16 @@ $(document).ready(function() {
 					limpa();
 					programacoes();
 						$('#linguagem').click(function(){
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+							vphp = confere(vphp);
 							nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=6;
+									let nota=6+vcss+vjs+vphp;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -177,10 +207,16 @@ $(document).ready(function() {
 					limpa();
 					programacoes();
 						$('#linguagem').click(function(){
+							let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+							let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+							vcss = confere(vcss);
+							vjs= confere(vjs);
+							vphp = confere(vphp);
 							nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
-									let nota=7;
+									let nota=7+vcss+vjs+vphp;
 									let nome = $('#nomedosite').val();
 									limpa();
 									din();
@@ -208,11 +244,20 @@ $(document).ready(function() {
 					programacoes();
 
 					$('#linguagem').click(function(){
+						let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+						let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+						let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+						vcss = confere(vcss);
+						vjs= confere(vjs);
+						vphp = confere(vphp);
 						nomedosite();
 
 						$('#enviar').click(function(){
+
 							teclado.pause();
-							let nota=8;
+
+							let nota=8+vcss+vjs+vphp;
+							
 							let nome = $('#nomedosite').val();
 							limpa();
 							din();
@@ -223,16 +268,23 @@ $(document).ready(function() {
    			 				});
 						});	
 					});
+
 					$('#pa2').click(function(){
 					limpa();
 					programacoes();
 
 					$('#linguagem').click(function(){
+						let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+						let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+						let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+						vcss = confere(vcss);
+						vjs= confere(vjs);
+						vphp = confere(vphp);
 						nomedosite();
 
 						$('#enviar').click(function(){
 							teclado.pause();
-							let nota=6;
+							let nota=6+vcss+vjs+vphp;
 							let nome = $('#nomedosite').val();
 							limpa();
 							din();
@@ -248,11 +300,17 @@ $(document).ready(function() {
 					programacoes();
 
 					$('#linguagem').click(function(){
+						let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
+						let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
+						let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
+						vcss = confere(vcss);
+						vjs= confere(vjs);
+						vphp = confere(vphp);
 						nomedosite();
 
 						$('#enviar').click(function(){
 							teclado.pause();
-							let nota=5;
+							let nota=5+vcss+vjs+vphp;
 							let nome = $('#nomedosite').val();
 							limpa();
 							din();
@@ -270,7 +328,7 @@ $(document).ready(function() {
 
 function inicio(potencial){
 					
-					
+
 					$('#opcoes').append('<button type="button" class="btn btn-outline-primary" id="desenvolver">Desenvolver Site</button>');
 					$('#opcoes').append('<button type="button" class="btn btn-outline-success" id="aprender">Aprender</button>');
 					$('#opcoes').append('<button type="button" class="btn btn-outline-danger">Contratos</button>');
@@ -330,23 +388,34 @@ teclado.play();
 }
 function programacoes(){
 	beep.play();
+
 		$('#opcoes').html("<h1>Quais serão usados:</h1>");
-				$('#opcoes').append("<label class='container'>HTML<input type='checkbox' value='2000' checked required><span class='checkmark'></span><label>");
-				if(metodo==0){
-				$('#opcoes').append("<label class='container' >CSS<input type='checkbox' value='4000' disabled><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container'>HTML<input type='checkbox'  checked required><span class='checkmark'></span><label>");
+				let CSS = localStorage.getItem('conhecimento').search('CSS');
+				if(CSS==-1){
+				$('#opcoes').append("<label class='container'>CSS<input type='checkbox' value='0' id='css' disabled><span class='checkmark'></span><label>");
 			}
 				else{
-					 $('#opcoes').append("<label class='container>CSS<input type='checkbox' value='4000' ><span class='checkmark'></span><label>");
+					 $('#opcoes').append("<label class='container'>CSS<input type='checkbox' value='1' name='css'><span class='checkmark'></span><label>");
 				
 				}
-				if(metodo>=1){
+				let JS = localStorage.getItem('conhecimento').search('JS');
+				if(JS!=-1){
 
-				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='6000' ><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='1' name='js'><span class='checkmark'></span><label>");
 			}
 			else{
-				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='6000' disabled><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='0' name='js' disabled><span class='checkmark'></span><label>");
 			}
+				let PHP = localStorage.getItem('conhecimento').search('PHP');
+				if(PHP==-1){
+					$('#opcoes').append("<label class='container'>PHP<input type='checkbox' value='0' id='php' disabled><span class='checkmark'></span><label>");
+				}
+				else{
+					 $('#opcoes').append("<label class='container'>PHP<input type='checkbox' value='1' name='php'><span class='checkmark'></span><label>");
+				}
 				$('#opcoes').append('<button type="button" class="btn btn-info" id="linguagem">Próximo</button>');
+
 }
 function notadosite(nota,ganho,nome){
 
@@ -429,7 +498,13 @@ function nomedosite(){
 }
 function calculonota(nota){
 	let num = Math.floor(Math.random() * 11);
+	
 	let max = nota+1;
+	if(max==10){
+		max--;
+	}
+	
+	
 	let min = nota-1;
 	while(num<min||num>max){
 		num = Math.floor(Math.random() * 11);
@@ -456,4 +531,12 @@ function barra(c,nota,ganho,nome){
    barra(c+1,nota,ganho,nome);
 }, 100);
 	
+}
+function confere(val){
+	if(Number.isInteger(parseInt(val))==true){
+		return 1;
+	}
+	else {
+		return 0;
+	}
 }
