@@ -1,3 +1,4 @@
+let sound = 0;
 $('#transparente').on('click','.fechado',function abre(){
 	$('#menu').fadeIn();
 	$('#engrenagem').addClass('aberto');
@@ -25,10 +26,12 @@ $(document).mouseup(function (e){
 	
 	}
 }); 
-$('#ativar').click(function(){
+$('#menu').on('click','#ativar',function(){
 	let c=0;
 	musica[c].play();
 	$('.desligado').removeClass('desligado');
+	$('#ativar').addClass('ligado');
+	$('#ativar').html('DESATIVAR MÚSICA<img src="imgs/pause.png">')
 		$('#menu').on('click','#proxima',function(){
 			if(c!=musica.length-1){ 
 			musica[c].pause();
@@ -52,5 +55,25 @@ $('#ativar').click(function(){
 			c=musica.length-1;
 			musica[c].play();
 		}
+	});
+$('#menu').on('click','.ligado',function(){
+	$('#ativar').removeClass('ligado');
+	$('#ativar').html("ATIVAR MUSICA<img src='imgs/play.png'>");
+	$('.mus').addClass('desligado');
+	musica[c].pause();
+})
 });
-});
+
+$('#menu').on('click','#som',function(){
+	sound=1;
+	$('#som').addClass('somdesligado');
+	$('#som').html('ATIVAR SOM<img src="imgs/som.png">')
+	teclado.pause();
+	
+})
+$('#menu').on('click','.somdesligado',function(){
+	sound=0;
+	$('#som').removeClass('somdesligado');
+	$('#som').html('DESATIVAR SOM<img src="imgs/semsom.png">')
+	
+})

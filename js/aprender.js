@@ -1,4 +1,5 @@
 $('#opcoes').on("click", "#aprender", function() {
+	$('#voltar').fadeIn();
 	limpa();
 
 	document.querySelector("#opcoes").innerHTML = "<h1>Aprender qual linguagem?</h1>"
@@ -8,15 +9,15 @@ $('#opcoes').on("click", "#aprender", function() {
 	document.querySelector("#opcoes").innerHTML += "<button class='btn btn-outline-danger' id='php'>PHP</button>";
 	
 	$('#opcoes').on('click','#css',function(){
-		
-			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$20.000</em>?');
+			
+			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$15.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
 
 			if(localStorage.getItem('conhecimento').search('CSS')==-1){
 
-			if(localStorage.getItem('dinheiro')>=20000){
-			maisdinheiro(-20000);
+			if(localStorage.getItem('dinheiro')>=15000){
+			maisdinheiro(-15000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+CSS');
 			
 		}
@@ -27,17 +28,17 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#myModal').modal();
 		}
 	
-		voltamenu();
+		
 	
 		$('#comprar').on('click','#fechar-botao',function(){
-			voltamenu();
+			
 		});
 	}
 	else {
 		$('#titulo-modal').html('Erro na compra');
 		$('#texto-modal').html('Você já tem essa linguagem.');
 		$('#myModal').modal();
-		voltamenu();
+		
 	}
 	});
 	});
@@ -56,17 +57,17 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#texto-modal').html('Não há dinheiro suficiente para comprar.');
 			$('#myModal').modal();
 		}
-		voltamenu();
+		
 		});
 		$('#comprar').on('click','#fechar-botao',function(){
-			voltamenu();
+			
 		});
 	}
 	else {
 		$('#titulo-modal').html('Erro na compra');
 		$('#texto-modal').html('Você já tem essa linguagem.');
 		$('#myModal').modal();
-		voltamenu();
+		
 	}
 	});
 
@@ -85,10 +86,10 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#texto-modal').html('Não há dinheiro suficiente para comprar.');
 			$('#myModal').modal();
 		}
-		voltamenu();
+		
 		});
 		$('#comprar').on('click','#fechar-botao',function(){
-			voltamenu();
+			
 		});
 	
 		}
@@ -96,9 +97,13 @@ $('#opcoes').on("click", "#aprender", function() {
 		$('#titulo-modal').html('Erro na compra');
 		$('#texto-modal').html('Você já tem essa linguagem.');
 		$('#myModal').modal();
-		voltamenu();
+		
 	}
 	});
+});
+$('#controles-menu').on('click','#voltar',function(){
+	voltamenu();
+	$('#voltar').fadeOut();
 });
 function voltamenu(){
 	limpa();

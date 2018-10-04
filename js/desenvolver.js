@@ -17,14 +17,15 @@ let loading = new Audio('audio/sons/loading.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		localStorage.setItem('dinheiro',10000);
-		localStorage.setItem('conhecimento','html');
+		localStorage.setItem('conhecimento','HTML');
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-	//maisdinheiro(+1000000);
+	
 	
 	});
 
 	$('#opcoes').on("click", "#desenvolver", function() {
+	
 		if (!localStorage.getItem('d')) {
 			localStorage.setItem('d',1);
 			$('#titulo-modal').html('Tutorial Desenvolver');
@@ -345,7 +346,7 @@ function din(){
 	$('#opcoes').html("<h1 id='dinheiro'></h1>");
 }
 function tema() {
-	beep.play();
+	if(sound==0)beep.play();
 
 		$('#opcoes').html("<h1>Tema do Site:</h1>");
 	
@@ -354,7 +355,7 @@ function tema() {
 		$('#opcoes').append("<button class='btn btn-outline-danger' id='op3'>Coding Dojo</button>");
 }
 	function publico(){
-		beep.play();
+		if(sound==0) beep.play();
 		$('#opcoes').html("<h1>Público Alvo:</h1>");
 		$('#opcoes').append("<button class='btn btn-outline-primary' id='pa1'>Crianças</button>");
 		$('#opcoes').append("<button class='btn btn-outline-success' id='pa2'>Adolescentes</button>");
@@ -381,13 +382,15 @@ function usu () {
 }
 function somteclado(){
 	teclado.addEventListener('ended', function() {
+		if(sound==0){
     this.currentTime = 0;
-    this.play();
+  this.play();
+}
 }, false);
-teclado.play();
+ if(sound==0)teclado.play();
 }
 function programacoes(){
-	beep.play();
+	if(sound==0)beep.play();
 
 		$('#opcoes').html("<h1>Quais serão usados:</h1>");
 				$('#opcoes').append("<label class='container'>HTML<input type='checkbox'  checked required><span class='checkmark'></span><label>");
@@ -419,7 +422,7 @@ function programacoes(){
 }
 function notadosite(nota,ganho,nome){
 
-	beep.play();
+	if(sound==0)beep.play();
 
 					let nota1 = calculonota(nota);
 					let nota2 = calculonota(nota);
@@ -467,7 +470,7 @@ function notadosite(nota,ganho,nome){
 					$('#texto-modal').append('<strong>IMDB</strong>');
 
 					$("#myModal").modal();
-					blop.play();
+					if(sound==0)blop.play();
 
 					$('.modal').on('click','#fechar', function(){
 						
@@ -482,7 +485,7 @@ function notadosite(nota,ganho,nome){
    							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000-ganho)+'</em></p>');
    						}
    						$("#myModal").modal();
-   						caixa.play();
+   						if(sound==0)caixa.play();
    						
 					});;
 					maisdinheiro(-4000);
@@ -490,7 +493,7 @@ function notadosite(nota,ganho,nome){
 					
 }
 function nomedosite(){
-	beep.play();
+	if(sound==0)beep.play();
 	$('#opcoes').empty();
 	$('#opcoes').html('<h1>Nome do Site:</h1>');
 	$('#opcoes').append('<input type="text" id="nomedosite">');
@@ -514,7 +517,7 @@ function calculonota(nota){
 function barra(c,nota,ganho,nome){
 	
 	if(c<=100){
-		loading.play();
+	if(sound==0)	loading.play();
 	$('#progresso').html('<div class="progress" ><div class="progress-bar progress-bar-striped" role="progressbar" style="width: '+c+'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>');
 	 $("#modal1").modal({
             backdrop: 'static',

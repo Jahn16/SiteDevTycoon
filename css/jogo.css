@@ -23,9 +23,10 @@ html {
 	height: 100%;
 	width: 100%;
 	transform: scale(0.5);
+	position: relative;
 }
 #avatar:hover{
-	transform: scale(0.8);
+	transform: scale(0.9);
 	transition: .8s;
 
 }
@@ -39,7 +40,7 @@ html {
 	display: block;
 	text-align: center;
 	width: 45%;
-	margin-left: 10%;
+	margin-left: 7%;
 	margin-top: 1%;
 	height: 86%;
 	padding-top: 2.3%;
@@ -175,23 +176,17 @@ input[type="text"]:focus{
 	width: 11%;
 	height:1%;
 }
-#menu li{
+#menu {
 	text-decoration: none;
-	padding-top: 5%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 
 
 }
+#menu button {
+	padding-bottom: 1%;
+}
 
-#menu ul li{
-	flex-wrap: wrap;
-	line-height: 20px;
-	list-style: none;
-	white-space: nowrap;
-}
-#menu ul{
-	padding-top: 15px;
-	padding-left: 20px;
-}
 .estilo-botoes-menu {
 	background:none;
     border:none;
@@ -211,6 +206,30 @@ input[type="text"]:focus{
     margin-left: auto;
     margin-right: auto;
 }
+.sobrepor {
+	position:absolute; top:0; left:0;
+	margin: 0;
+	border-radius: 1%;
+	height: 99.8%;
+	width: 100%;
+	transform: scale(0.5);
+	
+}
+.sobrepor:hover{
+	transform: scale(0.8);
+	transition: .8s;
+
+}
+#voltar {
+	width: 3.125em;
+	height: 7.49vh;
+	border-radius: 50%;
+	background-color:  #cccccc;
+	margin-top: 0.5%;
+	margin-left: 0.5%;
+	display: none;
+}
+
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);
