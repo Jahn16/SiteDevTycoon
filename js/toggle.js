@@ -30,9 +30,11 @@ $('#menu').on('click','#ativar',function(){
 	let c=0;
 	musica[c].play();
 	$('.desligado').removeClass('desligado');
+	$('#proxima').addClass('avanca');
+	$('#anterior').addClass('voltar')
 	$('#ativar').addClass('ligado');
 	$('#ativar').html('DESATIVAR MÚSICA<img src="imgs/pause.png">')
-		$('#menu').on('click','#proxima',function(){
+		$('#menu').on('click','.avanca',function(){
 			if(c!=musica.length-1){ 
 			musica[c].pause();
 			c++;
@@ -44,7 +46,7 @@ $('#menu').on('click','#ativar',function(){
 			musica[c].play();
 		}
 		});
-		$('#menu').on('click','#anterior',function(){
+		$('#menu').on('click','.voltar',function(){
 		if(c!=0){
 		musica[c].pause();
 		c--;
@@ -55,21 +57,23 @@ $('#menu').on('click','#ativar',function(){
 			c=musica.length-1;
 			musica[c].play();
 		}
+		
 	});
+
+});
 $('#menu').on('click','.ligado',function(){
 	$('#ativar').removeClass('ligado');
 	$('#ativar').html("ATIVAR MUSICA<img src='imgs/play.png'>");
 	$('.mus').addClass('desligado');
-	musica[c].pause();
+	$('.desligado').removeClass('proxima');
+	para();
 })
-});
-
 $('#menu').on('click','#som',function(){
 	sound=1;
 	$('#som').addClass('somdesligado');
 	$('#som').html('ATIVAR SOM<img src="imgs/som.png">')
 	teclado.pause();
-	
+	musica[c].pause();
 })
 $('#menu').on('click','.somdesligado',function(){
 	sound=0;
@@ -77,3 +81,8 @@ $('#menu').on('click','.somdesligado',function(){
 	$('#som').html('DESATIVAR SOM<img src="imgs/semsom.png">')
 	
 })
+function para(){
+	for(let i=0;i!=musica.length;i++){
+		musica[i].pause();
+	}
+}

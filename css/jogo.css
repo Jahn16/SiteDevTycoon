@@ -10,22 +10,43 @@ body {
 html {
     overflow: hidden;
 }
+
 #sprite {
 	margin-left: 50%;
 	margin-top: 1%;
-	position: absolute;
+	
 	height: 86.25vh;
 	width: 45%;
+	position: absolute;
 }
 #avatar {
 	margin: 0;
-	border-radius: 1%;
+	border-radius: 2%;
 	height: 100%;
 	width: 100%;
 	transform: scale(0.5);
-	position: relative;
+	transition: .8s;
 }
+
+
 #avatar:hover{
+	transform: scale(0.9);
+	transition: .8s;
+	
+
+}
+.sobrepor {
+	z-index: 3;
+	position:absolute; top:0; left:0;
+	margin: 0;
+	height: 100%;
+	border-radius: 2%;
+	position: absolute;
+	width: 100%;
+	transform: scale(0.5);
+	
+}
+.sobrepor.scale{
 	transform: scale(0.9);
 	transition: .8s;
 
@@ -206,20 +227,7 @@ input[type="text"]:focus{
     margin-left: auto;
     margin-right: auto;
 }
-.sobrepor {
-	position:absolute; top:0; left:0;
-	margin: 0;
-	border-radius: 1%;
-	height: 99.8%;
-	width: 100%;
-	transform: scale(0.5);
-	
-}
-.sobrepor:hover{
-	transform: scale(0.8);
-	transition: .8s;
 
-}
 #voltar {
 	width: 3.125em;
 	height: 7.49vh;

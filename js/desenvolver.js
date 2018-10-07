@@ -543,3 +543,9 @@ function confere(val){
 		return 0;
 	}
 }
+$('#sprite').on('mouseover','.sobrepor',function(){
+	$('#avatar').addClass('scale');
+});
+$('#sprite').on('mouseleave','.sobrepor',function(){
+	$('#avatar').removeClass('scale');
+})
