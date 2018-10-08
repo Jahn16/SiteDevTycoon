@@ -237,7 +237,9 @@ input[type="text"]:focus{
 	margin-left: 0.5%;
 	display: none;
 }
-
+#emprego {
+	height: 6vh;
+}
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);

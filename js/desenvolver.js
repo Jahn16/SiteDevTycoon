@@ -6,7 +6,8 @@
 	
 	$('#sprite').html("<img src='imgs/programador3.png' id='avatar'>");
 });
-let conhecimento =0;
+
+
 let potencial = 0;
 let metodo=0;
 let teclado = new Audio('audio/sons/teclado.mp3');
@@ -18,9 +19,11 @@ $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		localStorage.setItem('dinheiro',10000);
 		localStorage.setItem('conhecimento','HTML');
+		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
+		localStorage.setItem('vezes','0');
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
-	
+	$('#sprite').html(localStorage.getItem('pixel'));
 	
 	});
 
@@ -332,7 +335,7 @@ function inicio(potencial){
 
 					$('#opcoes').append('<button type="button" class="btn btn-outline-primary" id="desenvolver">Desenvolver Site</button>');
 					$('#opcoes').append('<button type="button" class="btn btn-outline-success" id="aprender">Aprender</button>');
-					$('#opcoes').append('<button type="button" class="btn btn-outline-danger">Contratos</button>');
+					$('#opcoes').append('<button type="button" class="btn btn-outline-danger" id="estilo">Carreira</button>');
 }
 
 function limpa(){
@@ -475,19 +478,27 @@ function notadosite(nota,ganho,nome){
 					$('.modal').on('click','#fechar', function(){
 						
 					$('#titulo-modal').html('<h1>Fim do mês</h1>');
-   						$('#texto-modal').html('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+ganho+'</em><br>');
+					$('#texto-modal').empty();
+					if(localStorage.getItem('salario')){
+						$('#texto-modal').html('<p>Salário: <em class="verde"> +$'+sal()+'</em><br>');
+						ganho = Math.floor(ganho/3);
+					}
+   						$('#texto-modal').append('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+ganho+'</em><br>');
    						$('#texto-modal').append('<p>Valor das contas: <em class="vermelho"> -$4000</em>');
    						$('#texto-modal').append('<p>====================================</p>'); 
-   						if(ganho>4000){
-   							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+(ganho-4000)+'</em></p>');
+   						
+   						if(ganho+sal()>4000){
+   							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+(ganho+sal()-4000)+'</em></p>');
    						}
    						else {
-   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000-ganho)+'</em></p>');
+   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000+sal()-ganho)+'</em></p>');
    						}
+   					
    						$("#myModal").modal();
    						if(sound==0)caixa.play();
    						
 					});;
+					localStorage.setItem('vezes',parseInt(localStorage.getItem('vezes'))+1);
 					maisdinheiro(-4000);
 					inicio();
 					
@@ -543,9 +554,11 @@ function confere(val){
 		return 0;
 	}
 }
-$('#sprite').on('mouseover','.sobrepor',function(){
-	$('#avatar').addClass('scale');
-});
-$('#sprite').on('mouseleave','.sobrepor',function(){
-	$('#avatar').removeClass('scale');
-})
+function sal(){
+	if(localStorage.getItem('salario')){
+	return parseInt(localStorage.getItem('salario'));
+	}
+	else {
+		return 0;
+	}
+}

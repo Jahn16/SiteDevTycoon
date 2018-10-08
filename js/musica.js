@@ -11,7 +11,12 @@ document.onkeypress = function(evt) {
     if(charStr == 'm'){
     	musica[c].pause();
     }
-    
+     if(charStr == 'd'){
+        maisdinheiro(+10000);
+    }
+    if(charStr == 'r'){
+        resetar();
+    }
 };
 
 function som(c){

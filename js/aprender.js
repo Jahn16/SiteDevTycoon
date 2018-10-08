@@ -16,7 +16,7 @@ $('#opcoes').on("click", "#aprender", function() {
 
 			if(localStorage.getItem('conhecimento').search('CSS')==-1){
 
-			if(localStorage.getItem('dinheiro')>=15000){
+			if(pegadinheiro()>=15000){
 			maisdinheiro(-15000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+CSS');
 			
@@ -45,9 +45,18 @@ $('#opcoes').on("click", "#aprender", function() {
 	$('#opcoes').on('click','#js',function(){
 		if(localStorage.getItem('conhecimento').search('JS')==-1){
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>JS</strong> por <em class="vermelho">$100.000</em>?');
-				$('#comprar').modal();
-			$('#comprar').on('click','#comprar-botao',function(){
-			if(localStorage.getItem('dinheiro')>=100000){
+			$('#comprar').modal();
+			
+		
+	}
+	else {
+		$('#titulo-modal').html('Erro na compra');
+		$('#texto-modal').html('Você já tem essa linguagem.');
+		$('#myModal').modal();
+		
+	}
+	$('#comprar').on('click','#comprar-botao',function(){
+			if(pegadinheiro()>=100000){
 			maisdinheiro(-100000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+JS');
 			
@@ -59,16 +68,6 @@ $('#opcoes').on("click", "#aprender", function() {
 		}
 		
 		});
-		$('#comprar').on('click','#fechar-botao',function(){
-			
-		});
-	}
-	else {
-		$('#titulo-modal').html('Erro na compra');
-		$('#texto-modal').html('Você já tem essa linguagem.');
-		$('#myModal').modal();
-		
-	}
 	});
 
 	$('#opcoes').on('click','#php',function(){
@@ -76,7 +75,7 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>PHP</strong> por <em class="vermelho">$200.000</em>?');
 				$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-			if(localStorage.getItem('dinheiro')>=200000){
+			if(pegadinheiro()>=200000){
 			maisdinheiro(-200000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+PHP');
 			
@@ -110,5 +109,5 @@ function voltamenu(){
 	din();
 	inicio();
 	
-	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+	$('#dinheiro').html('$'+pegadinheiro());
 }
