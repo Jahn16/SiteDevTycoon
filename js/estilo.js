@@ -29,9 +29,11 @@ $('#opcoes').on('click','#estilo',function(){
 				$('#myModal').modal();
 				$('#myModal').on('click','#fechar',function(){
 					$('#fechar').html('Fechar');
+					if(!localStorage.getItem('emprego')){
 					localStorage.setItem('emprego','0');
 					
 					start();
+				}
 					$('#opcoes').on('click','#setup',function(){
 				
 			$('#comprar-texto').html('Deseja comprar um Setup melhor por <em class="vermelho">$10.000</em>?');
@@ -65,11 +67,17 @@ $('#opcoes').on('click','#estilo',function(){
 				$('#texto-modal').html('Tem certeza que deseja trabalhar na Teknisa?');
 				$('#fechar').html('Confirmar');
 				$('#myModal').modal();
-				$('#myModal').on('click','#fechar',function(){
+				$('#fechar').click(function(){
+					if(!localStorage.getItem('emprego')){
 					$('#fechar').html('Fechar');
 					localStorage.setItem('emprego','1');
 					teknisa();
+					localStorage.setItem('pixel','<img src="imgs/cafe.png" id="avatar">');
+					
 					localStorage.setItem('salario','3000');
+					$('#sprite').html(localStorage.getItem('pixel'));
+				}
+				
 				});
 			});
 
@@ -79,11 +87,11 @@ $('#opcoes').on('click','#estilo',function(){
 			start();
 			$('#opcoes').on('click','#setup',function(){
 				
-			$('#comprar-texto').html('Deseja comprar um Setup melhor por <em class="vermelho">$10.000</em>?');
+			$('#comprar-texto').html('Deseja comprar um Setup melhor por <em class="vermelho">$5.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-				if(localStorage.getItem('dinheiro')>=10000){
-					maisdinheiro(-10000);
+				if(localStorage.getItem('dinheiro')>=5000){
+					maisdinheiro(-5000);
 					if(localStorage.getItem('cpixel')=='0'){
 						maisc();
 					localStorage.setItem('pixel','<img src="imgs/normal.png" id="avatar">');
@@ -147,29 +155,44 @@ function resetar(){
 		localStorage.removeItem('e');
 		localStorage.removeItem('es');
 		localStorage.removeItem('d');
+		localStorage.removeItem('emprego');
 		localStorage.removeItem('salario');
 		localStorage.removeItem('vezes');
 		localStorage.setItem('conhecimento','HTML');
 		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
 
-		$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+		$('#dinheiro').html('$'+pegadinheiro());
 
 	$('#sprite').html(localStorage.getItem('pixel'));
 }
 function teknisa(){
-	localStorage.setItem('pixel','<img src="imgs/teknisa1.png" id="avatar">');
+	$('#opcoes').html('<h1>Mudar Setup</h1>');
+		let funcao = parseInt(localStorage.getItem('cpixel'));
+		if(funcao==0){
+			funcao='Servidor de café';
+		}
+		else if(funcao==1){
+			funcao='Escravo';
+		}
+		if(vez>=10){
+			localStorage.setItem('vezes',0);
+			promocao();
+		}
 	$('#opcoes').html('<h1>Trabalhador da Teknisa</h1>');
-	$('#opcoes').append('<h4>Emprego : Escravo</h4><br><br><br><br>');
+	$('#opcoes').append('<h4>Emprego : '+funcao+'</h4><br><br><br><br>');
 	$('#opcoes').append('<p>Sites feitos até próxima promoção:</p>')
-	if(vez()==10){
-		localStorage.getItem('vezes',0);
-		aumentasalario(1000);
-	}
+	
 	$('#opcoes').append('<div class="progress" id="emprego"><div class="progress-bar" role="progressbar" aria-valuenow="0" style="width:'+vez()*10+'%"  aria-valuemin="0" aria-valuemax="100">'+vez()+' Site(s)</div></div>')
 }
 function vez(){
 	return parseInt(localStorage.getItem('vezes'));
 }
 function aumentasalario(num){
-	localStorage.set('salario',parseInt(localStorage.getItem('salario')+num));
+	localStorage.setItem('salario',parseInt(localStorage.getItem('salario'))+num);
+}
+function promocao(){
+	if(parseInt(localStorage.getItem('cpixel'))==1){
+		localStorage.setItem('pixel','<img src="imgs/teknisa1.png" id="avatar">');
+			$('#sprite').html(localStorage.getItem('pixel'));
+		}
 }

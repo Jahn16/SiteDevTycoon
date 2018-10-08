@@ -79,7 +79,7 @@ $(document).ready(function() {
 									din();
 									let ganho = Math.floor(Math.random() * nota*700);
 									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
+									
 									
 									barra(0,nota,ganho,nome);
    			 						
@@ -95,7 +95,7 @@ $(document).ready(function() {
 							let vphp =  $( "input[type=checkbox][name=php]:checked" ).val();
 							vcss = confere(vcss);
 							vjs= confere(vjs);
-						vphp = confere(vphp);
+							vphp = confere(vphp);
 								nomedosite();
 								$('#enviar').click(function(){
 									teclado.pause();
@@ -105,8 +105,8 @@ $(document).ready(function() {
 									din();
 									let ganho = Math.floor(Math.random() * nota*700);
 									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
-									barra(0);
+									
+									
    			 					
 									barra(0,nota,ganho,nome);
    			 					
@@ -132,7 +132,7 @@ $(document).ready(function() {
 								din();
 								let ganho = Math.floor(Math.random() * nota*700);
 								while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-								maisdinheiro(ganho);
+								
 								barra(0,nota,ganho,nome);
    			 					
 							
@@ -171,7 +171,7 @@ $(document).ready(function() {
 								din();
 								let ganho = Math.floor(Math.random() * nota*700);
 								while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-								maisdinheiro(ganho);
+								
 								barra(0,nota,ganho,nome);
    			 					
 								
@@ -197,13 +197,8 @@ $(document).ready(function() {
 									din();
 									let ganho = Math.floor(Math.random() * nota*700);
 									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
-									barra(0);
-   			 					
-									setTimeout(function() {
-   									notadosite(nota,ganho,nome);
-   									
-									}, 10300);
+									
+									barra(0,nota,ganho,nome);
 								});
 						});
 				});
@@ -226,7 +221,7 @@ $(document).ready(function() {
 									din();
 									let ganho = Math.floor(Math.random() * nota*700);
 									while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-									maisdinheiro(ganho);
+									
 									barra(0,nota,ganho,nome);
    			 						
 									
@@ -255,9 +250,11 @@ $(document).ready(function() {
 						vjs= confere(vjs);
 						vphp = confere(vphp);
 						nomedosite();
-
+						let href= 'https://ovelhahtml.neocities.org/';
+						if(vcss==1) href = 'https://ovelhacss.neocities.org/';
+						if(vjs==1) href = 'https://animewiki2.neocities.org/';
 						$('#enviar').click(function(){
-
+							if($('#nomedosite').val()!=''){
 							teclado.pause();
 
 							let nota=8+vcss+vjs+vphp;
@@ -267,8 +264,10 @@ $(document).ready(function() {
 							din();
 							let ganho = Math.floor(Math.random() * nota*700);
 							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-							maisdinheiro(ganho);
-							barra(0,nota,ganho,nome);
+							
+							barra(0,nota,ganho,nome,href);
+						}
+						else alert('Preencha o nome');
    			 				});
 						});	
 					});
@@ -294,7 +293,7 @@ $(document).ready(function() {
 							din();
 							let ganho = Math.floor(Math.random() * nota*700);
 							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-							maisdinheiro(ganho);
+							
 							barra(0,nota,ganho,nome);
    			 				});
 						});	
@@ -320,7 +319,7 @@ $(document).ready(function() {
 							din();
 							let ganho = Math.floor(Math.random() * nota*700);
 							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
-							maisdinheiro(ganho);
+							
 							barra(0,nota,ganho,nome);
    			 				});
 						});	
@@ -374,7 +373,7 @@ function maisdinheiro(ganho){
 	dinheiroatual+= ganho;
 	localStorage.setItem('dinheiro',dinheiroatual);
 	
-	return ganho;
+	
 }
 function emp(){
 	
@@ -423,14 +422,15 @@ function programacoes(){
 				$('#opcoes').append('<button type="button" class="btn btn-info" id="linguagem">Próximo</button>');
 
 }
-function notadosite(nota,ganho,nome){
-
+function notadosite(nota,ganho,nome,href){
+	let taxa = ganho;
+	if(localStorage.getItem('salario')) ganho = Math.floor(ganho/3);
 	if(sound==0)beep.play();
 
 					let nota1 = calculonota(nota);
 					let nota2 = calculonota(nota);
 					let nota3 = calculonota(nota);
-					$('#titulo-modal').html('As primeiras reviews de '+nome+' sairam!');
+					$('#titulo-modal').html('As primeiras reviews de <a target="_blank" href="'+href+'">'+nome+'</a> sairam!');
 					$('#texto-modal').html('<h2><strong>'+nota1+'<strong><h2>');
 					if(nota1==0)$('#texto-modal').append('<p>"Site horroso,mal programado e com pessíma escolha de tema"</p>');
 					if(nota1==1)$('#texto-modal').append('<p>"Muito ruim,perda de tempo"</p>');
@@ -481,11 +481,19 @@ function notadosite(nota,ganho,nome){
 					$('#texto-modal').empty();
 					if(localStorage.getItem('salario')){
 						$('#texto-modal').html('<p>Salário: <em class="verde"> +$'+sal()+'</em><br>');
-						ganho = Math.floor(ganho/3);
+						
+						
 					}
-   						$('#texto-modal').append('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+ganho+'</em><br>');
+						if(localStorage.getItem('vezes')>=10){
+						localStorage.setItem('vezes',0);
+						aumentasalario(1000);
+						maisc();
+						promocao();
+					}
+   						$('#texto-modal').append('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+taxa+'</em><br>');
+   						if(localStorage.getItem('salario'))$('#texto-modal').append('<p>Taxa pega pela Teknisa: <em class="vermelho">-$'+-(ganho-taxa)+'</em><br>');
    						$('#texto-modal').append('<p>Valor das contas: <em class="vermelho"> -$4000</em>');
-   						$('#texto-modal').append('<p>====================================</p>'); 
+   						$('#texto-modal').append('<p>========================================</p>'); 
    						
    						if(ganho+sal()>4000){
    							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+(ganho+sal()-4000)+'</em></p>');
@@ -498,8 +506,12 @@ function notadosite(nota,ganho,nome){
    						if(sound==0)caixa.play();
    						
 					});;
+					let renda = ganho+sal()-4000;
+					
 					localStorage.setItem('vezes',parseInt(localStorage.getItem('vezes'))+1);
-					maisdinheiro(-4000);
+					
+					maisdinheiro(renda);
+
 					inicio();
 					
 }
@@ -525,7 +537,7 @@ function calculonota(nota){
 	}
 	return num;
 }
-function barra(c,nota,ganho,nome){
+function barra(c,nota,ganho,nome,href){
 	
 	if(c<=100){
 	if(sound==0)	loading.play();
@@ -538,12 +550,12 @@ function barra(c,nota,ganho,nome){
 	if(c==100){
 		 $('#modal1').modal('toggle');
 		 loading.pause();
-		notadosite(nota,ganho,nome);
+		notadosite(nota,ganho,nome,href);
 		$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 	}
 	setTimeout(function() {
-   barra(c+1,nota,ganho,nome);
-}, 100);
+   barra(c+1,nota,ganho,nome,href);
+}, 1);
 	
 }
 function confere(val){

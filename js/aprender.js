@@ -20,8 +20,8 @@ $('#opcoes').on("click", "#aprender", function() {
 			maisdinheiro(-15000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+CSS');
 			
-		}
-		else {
+			}
+			else {
 
 			$('#titulo-modal').html('Erro na compra');
 			$('#texto-modal').html('Não há dinheiro suficiente para comprar.');
@@ -30,11 +30,10 @@ $('#opcoes').on("click", "#aprender", function() {
 	
 		
 	
-		$('#comprar').on('click','#fechar-botao',function(){
-			
-		});
-	}
-	else {
+		
+		}
+		else {
+
 		$('#titulo-modal').html('Erro na compra');
 		$('#texto-modal').html('Você já tem essa linguagem.');
 		$('#myModal').modal();
@@ -42,6 +41,7 @@ $('#opcoes').on("click", "#aprender", function() {
 	}
 	});
 	});
+
 	$('#opcoes').on('click','#js',function(){
 		if(localStorage.getItem('conhecimento').search('JS')==-1){
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>JS</strong> por <em class="vermelho">$100.000</em>?');

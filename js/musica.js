@@ -11,7 +11,7 @@ document.onkeypress = function(evt) {
     if(charStr == 'm'){
     	musica[c].pause();
     }
-     if(charStr == 'd'){
+     if(charStr == 'x'){
         maisdinheiro(+10000);
     }
     if(charStr == 'r'){
