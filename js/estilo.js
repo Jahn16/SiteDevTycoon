@@ -36,10 +36,10 @@ $('#opcoes').on('click','#estilo',function(){
 				}
 					$('#opcoes').on('click','#setup',function(){
 				
-			$('#comprar-texto').html('Deseja comprar um Setup melhor por <em class="vermelho">$10.000</em>?');
+			$('#comprar-texto').html('Deseja comprar um Setup melhor por <em class="vermelho">$5.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-				if(localStorage.getItem('dinheiro')>=10000){
+				if(localStorage.getItem('dinheiro')>=5000){
 					maisdinheiro(-10000);
 					if(localStorage.getItem('cpixel')=='0'){
 						maisc();

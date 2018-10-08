@@ -8,8 +8,7 @@
 });
 
 
-let potencial = 0;
-let metodo=0;
+
 let teclado = new Audio('audio/sons/teclado.mp3');
 let beep = new Audio('audio/sons/beep.wav');
 let blop = new Audio('audio/sons/blop.mp3');
