@@ -2,7 +2,7 @@ $('#opcoes').on("click", "#aprender", function() {
 	$('#voltar').fadeIn();
 	limpa();
 
-	document.querySelector("#opcoes").innerHTML = "<h1>Aprender qual linguagem?</h1>"
+	document.querySelector("#opcoes").innerHTML = "<h1 class='config'>Aprender qual linguagem?</h1>"
 	
 	document.querySelector("#opcoes").innerHTML += "<button class='btn btn-outline-primary' id='css'>CSS</button>";
 	document.querySelector("#opcoes").innerHTML += "<button class='btn btn-outline-success' id='js'>JavaScript</button>";
@@ -107,7 +107,9 @@ $('#controles-menu').on('click','#voltar',function(){
 function voltamenu(){
 	limpa();
 	din();
+
 	inicio();
 	
 	$('#dinheiro').html('$'+pegadinheiro());
+	$('#fansh2').html('<img src="imgs/Users.png" id="fansimg"><h2 id="fans">'+pegafan()+'</h2>');
 }

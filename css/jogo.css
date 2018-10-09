@@ -83,13 +83,15 @@ html {
     background: linear-gradient(90deg, #ddd 40%, transparent 40%);
 }
 #opcoes h1 {
-	margin-bottom: 10%;
+	
 	display: block;
 	text-align: center;
 	
 	
 }
-
+.config {
+	margin-bottom: 10%;
+}
 #opcoes button {
 	margin-bottom: 2.3%;
 	display: block;
@@ -98,11 +100,20 @@ html {
 	width: 70%;
 	height: 20%;
 }
-#opcoes img {
-	float: left;
-	width: 10%;
+
+#fans {
+	margin-bottom: 6%;
+	color : #34495E;
 	display: inline-block;
+	font-size: 100%;
+	}
+#fansimg{
 	
+	width: 5vh;
+	vertical-align: middle;
+
+}	
+#fansh2 {
 
 }
 #botoes {
@@ -110,8 +121,9 @@ html {
 }
 
 #dinheiro {
+	
 	color:green;
-
+	margin-bottom:2%;
 }
 #opcoes label {
 	text-align: center;
@@ -161,6 +173,9 @@ input[type="text"]:focus{
 }
 .verde {
 	color:green;
+}
+.azul {
+	color : #4271f4;
 }
 #engrenagem{
 	z-index: 20000;

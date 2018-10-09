@@ -19,7 +19,7 @@ $('#opcoes').on('click','#estilo',function(){
 				});
 			});
 			$('#voltar').fadeIn();
-			$('#opcoes').html('<h1>Que vertente você irá seguir?');
+			$('#opcoes').html('<h1 class="config">Que vertente você irá seguir?');
 			$('#opcoes').append('<button id="startup" class="btn btn-outline-info">Seguir sua própria Startup</button>');
 			$('#opcoes').append('<button id="teknisa" class="btn btn-outline-success">Seguir carreira profissional</button>');
 			$('#opcoes').on('click','#startup',function(){
@@ -125,7 +125,7 @@ function emp(){
 	return localStorage.getItem('emprego');
 }
 function start(){
-	$('#opcoes').html('<h1>Mudar Setup</h1>');
+	$('#opcoes').html('<h1 class="config">Mudar Setup</h1>');
 		let status = parseInt(localStorage.getItem('cpixel'));
 		if(status==0){
 			status='Pobre';
@@ -160,13 +160,13 @@ function resetar(){
 		localStorage.removeItem('vezes');
 		localStorage.setItem('conhecimento','HTML');
 		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
-
+		localStorage.setItem('fans',0);
 		$('#dinheiro').html('$'+pegadinheiro());
 
 	$('#sprite').html(localStorage.getItem('pixel'));
 }
 function teknisa(){
-	$('#opcoes').html('<h1>Mudar Setup</h1>');
+	$('#opcoes').html('< class="config">Mudar Setup</h1>');
 		let funcao = parseInt(localStorage.getItem('cpixel'));
 		if(funcao==0){
 			funcao='Servidor de café';
@@ -178,7 +178,7 @@ function teknisa(){
 			localStorage.setItem('vezes',0);
 			promocao();
 		}
-	$('#opcoes').html('<h1>Trabalhador da Teknisa</h1>');
+	$('#opcoes').html('<h1 class="config">Trabalhador da Teknisa</h1>');
 	$('#opcoes').append('<h4>Emprego : '+funcao+'</h4><br><br><br><br>');
 	$('#opcoes').append('<p>Sites feitos até próxima promoção:</p>')
 	

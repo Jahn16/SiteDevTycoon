@@ -19,9 +19,11 @@ $(document).ready(function() {
 		localStorage.setItem('dinheiro',10000);
 		localStorage.setItem('conhecimento','HTML');
 		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
-		localStorage.setItem('vezes','0');
+		localStorage.setItem('vezes',0);
+		localStorage.setItem('fans',0);
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+	$('#fans').html(pegafan());
 	$('#sprite').html(localStorage.getItem('pixel'));
 	
 	});
@@ -328,7 +330,7 @@ $(document).ready(function() {
 
 });
 
-function inicio(potencial){
+function inicio(){
 					
 
 					$('#opcoes').append('<button type="button" class="btn btn-outline-primary" id="desenvolver">Desenvolver Site</button>');
@@ -345,11 +347,12 @@ function onClick(element) {
 }
 function din(){
 	$('#opcoes').html("<h1 id='dinheiro'></h1>");
+	$('#opcoes').append('<div id="fansh2"><h2 id="fans"></h2></div>');
 }
 function tema() {
 	if(sound==0)beep.play();
 
-		$('#opcoes').html("<h1>Tema do Site:</h1>");
+		$('#opcoes').html("<h1 class='config'>Tema do Site:</h1>");
 	
 		$('#opcoes').append("<button class='btn btn-outline-primary' id='op1'>Raças Raras de Ovelhas</button>");
 		$('#opcoes').append("<button class='btn btn-outline-success' id='op2'>Plantas Carnívoras</button>");
@@ -357,7 +360,7 @@ function tema() {
 }
 	function publico(){
 		if(sound==0) beep.play();
-		$('#opcoes').html("<h1>Público Alvo:</h1>");
+		$('#opcoes').html("<h1 class='config'>Público Alvo:</h1>");
 		$('#opcoes').append("<button class='btn btn-outline-primary' id='pa1'>Crianças</button>");
 		$('#opcoes').append("<button class='btn btn-outline-success' id='pa2'>Adolescentes</button>");
 		$('#opcoes').append("<button class='btn btn-outline-danger' id='pa3'>Adultos</button>");
@@ -393,7 +396,7 @@ function somteclado(){
 function programacoes(){
 	if(sound==0)beep.play();
 
-		$('#opcoes').html("<h1>Quais serão usados:</h1>");
+		$('#opcoes').html("<h1 class='config'>Quais serão usados:</h1>");
 				$('#opcoes').append("<label class='container'>HTML<input type='checkbox'  checked required><span class='checkmark'></span><label>");
 				let CSS = localStorage.getItem('conhecimento').search('CSS');
 				if(CSS==-1){
@@ -422,8 +425,13 @@ function programacoes(){
 
 }
 function notadosite(nota,ganho,nome,href){
-	let taxa = ganho;
 	if(localStorage.getItem('salario')) ganho = Math.floor(ganho/3);
+	let taxa = ganho;
+	
+	let renda = ganho+sal()-4000+pegafan();
+	let ganhofan = Math.floor((renda-pegafan())/3);
+	if(ganhofan+pegafan()<0) ganhofan=-(pegafan());
+	
 	if(sound==0)beep.play();
 
 					let nota1 = calculonota(nota);
@@ -478,6 +486,14 @@ function notadosite(nota,ganho,nome,href){
 						
 					$('#titulo-modal').html('<h1>Fim do mês</h1>');
 					$('#texto-modal').empty();
+
+					
+					if(ganhofan>=0){
+					$('#texto-modal').append('<p>Fans ganhos: <em class="azul">+'+ganhofan+'</em></p>');
+				}
+				else {
+					$('#texto-modal').append('<p>Fans perdidos: <em class="azul">'+ganhofan+'</em></p>');
+				}
 					if(localStorage.getItem('salario')){
 						$('#texto-modal').html('<p>Salário: <em class="verde"> +$'+sal()+'</em><br>');
 						
@@ -495,24 +511,25 @@ function notadosite(nota,ganho,nome,href){
    						$('#texto-modal').append('<p>========================================</p>'); 
    						
    						if(ganho+sal()>4000){
-   							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+(ganho+sal()-4000)+'</em></p>');
+   							$('#texto-modal').append('<p>Renda líquida: <em class="verde">+$'+renda+'</em></p>');
    						}
    						else {
-   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+(4000+sal()-ganho)+'</em></p>');
+   							$('#texto-modal').append('<p>Renda líquida: <em class="vermelho">-$'+-renda+'</em></p>');
    						}
    					
    						$("#myModal").modal();
    						if(sound==0)caixa.play();
    						
 					});;
-					let renda = ganho+sal()-4000;
+					
 					
 					localStorage.setItem('vezes',parseInt(localStorage.getItem('vezes'))+1);
 					
 					maisdinheiro(renda);
-
+					maisfan(ganhofan);
 					inicio();
-					
+					$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+					$('#fansh2').html('<img src="imgs/Users.png" id="fansimg"><h2 id="fans">'+pegafan()+'</h2>');
 }
 function nomedosite(){
 	if(sound==0)beep.play();
@@ -538,8 +555,9 @@ function calculonota(nota){
 }
 function barra(c,nota,ganho,nome,href){
 	
-	if(c<=100){
+	if(c<100){
 	if(sound==0)	loading.play();
+	
 	$('#progresso').html('<div class="progress" ><div class="progress-bar progress-bar-striped" role="progressbar" style="width: '+c+'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div></div>');
 	 $("#modal1").modal({
             backdrop: 'static',
@@ -550,7 +568,8 @@ function barra(c,nota,ganho,nome,href){
 		 $('#modal1').modal('toggle');
 		 loading.pause();
 		notadosite(nota,ganho,nome,href);
-		$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+		
+		$('#fans').html(pegafan());
 	}
 	setTimeout(function() {
    barra(c+1,nota,ganho,nome,href);
@@ -572,4 +591,11 @@ function sal(){
 	else {
 		return 0;
 	}
+}
+function pegafan(){
+	return parseInt(localStorage.getItem('fans'));
+}
+function maisfan(ganho){
+	let fanatual = pegafan();
+	localStorage.setItem('fans',pegafan()+ganho);
 }
