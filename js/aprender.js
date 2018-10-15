@@ -73,7 +73,7 @@ $('#opcoes').on("click", "#aprender", function() {
 	$('#opcoes').on('click','#php',function(){
 		if(localStorage.getItem('conhecimento').search('PHP')==-1){
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>PHP</strong> por <em class="vermelho">$200.000</em>?');
-				$('#comprar').modal();
+			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
 			if(pegadinheiro()>=200000){
 			maisdinheiro(-200000);

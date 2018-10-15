@@ -44,6 +44,7 @@ $('#menu').on('click','#ativar',function(){
 			musica[c].pause();
 			c=0;
 			musica[c].play();
+
 		}
 		});
 		$('#menu').on('click','.voltar',function(){
@@ -57,7 +58,16 @@ $('#menu').on('click','#ativar',function(){
 			c=musica.length-1;
 			musica[c].play();
 		}
-		
+		musica[c].addEventListener('ended',function(){
+		if(c+1<musica.length){
+			C++;
+		musica[c].play();
+	}
+		else {
+			c=0;
+			musica[c].play();
+		}
+	});
 	});
 
 });

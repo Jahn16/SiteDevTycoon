@@ -13,6 +13,7 @@ document.onkeypress = function(evt) {
     }
      if(charStr == 'x'){
         maisdinheiro(+10000);
+        $('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
     }
     if(charStr == 'r'){
         resetar();

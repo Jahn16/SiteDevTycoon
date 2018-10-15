@@ -177,6 +177,16 @@ input[type="text"]:focus{
 .azul {
 	color : #4271f4;
 }
+.direita {
+	
+	width: 2em;
+	position: absolute;right:0;
+}
+.esquerda {
+	
+	width: 2em;
+position: absolute;left:0;
+}
 #engrenagem{
 	z-index: 20000;
 	width: 3.125em;
@@ -255,6 +265,34 @@ input[type="text"]:focus{
 #emprego {
 	height: 6vh;
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+     border: 1px solid #999999;
+}
+td {
+	
+	cursor: pointer;
+}
+tr {
+	background-color:  #808080;
+}
+td:hover {
+	color:#007bff;
+	text-decoration: underline;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);

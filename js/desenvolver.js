@@ -573,7 +573,7 @@ function barra(c,nota,ganho,nome,href){
 	}
 	setTimeout(function() {
    barra(c+1,nota,ganho,nome,href);
-}, 1);
+}, 50);
 	
 }
 function confere(val){
@@ -598,4 +598,17 @@ function pegafan(){
 function maisfan(ganho){
 	let fanatual = pegafan();
 	localStorage.setItem('fans',pegafan()+ganho);
+}
+function resetar(){
+		localStorage.setItem('dinheiro',10000);
+		localStorage.setItem('conhecimento','HTML');
+		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
+		localStorage.setItem('vezes',0);
+		localStorage.setItem('fans',0);
+		localStorage.setItem('cp',0);
+		localStorage.removeItem('e');
+		localStorage.removeItem('d');
+		$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
+		$('#fans').html(pegafan());
+		$('#sprite').html(localStorage.getItem('pixel'));
 }
