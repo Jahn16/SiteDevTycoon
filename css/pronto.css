@@ -16,6 +16,7 @@
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  
 }
 
 /* Create a custom checkbox */
@@ -26,6 +27,7 @@
   height: 25px;
   width: 25px;
   background-color: #eee;
+
 }
 
 /* On mouse-over, add a grey background color */

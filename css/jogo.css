@@ -3,7 +3,7 @@ body,html {
 	height:100%;
 }
 body {
-	background-image: url(../imgs/aa.gif);
+	background-image:  url(../imgs/wpplulu2.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
@@ -88,6 +88,15 @@ html {
 	text-align: center;
 	
 	
+}
+#opcoes li {
+	cursor: pointer;
+	font-size: 20px;
+
+}
+ul {
+	display: inline-block;
+    text-align:left;
 }
 .config {
 	margin-bottom: 10%;
@@ -190,11 +199,7 @@ position: absolute;left:0;
 #engrenagem{
 	z-index: 20000;
 	width: 3.125em;
-	height: 7.49vh;
-	background-image: url('../imgs/engine.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: center;
+	height: 100%;
 	cursor: pointer;
 	background-color:  #cccccc;
 	border-radius: 50%;
@@ -255,7 +260,7 @@ position: absolute;left:0;
 
 #voltar {
 	width: 3.125em;
-	height: 7.49vh;
+	height: 100%;
 	border-radius: 50%;
 	background-color:  #cccccc;
 	margin-top: 0.5%;

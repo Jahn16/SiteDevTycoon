@@ -16,11 +16,7 @@ let caixa = new Audio('audio/sons/dinheiro.mp3');
 let loading = new Audio('audio/sons/loading.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
-		localStorage.setItem('dinheiro',10000);
-		localStorage.setItem('conhecimento','HTML');
-		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
-		localStorage.setItem('vezes',0);
-		localStorage.setItem('fans',0);
+		resetar();
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 	$('#fans').html(pegafan());
@@ -425,8 +421,9 @@ function programacoes(){
 
 }
 function notadosite(nota,ganho,nome,href){
-	if(localStorage.getItem('salario')) ganho = Math.floor(ganho/3);
 	let taxa = ganho;
+	if(localStorage.getItem('emprego')!=0) ganho = Math.floor(ganho/3);
+	
 	
 	let renda = ganho+sal()-4000+pegafan();
 	let ganhofan = Math.floor((renda-pegafan())/3);
@@ -495,18 +492,13 @@ function notadosite(nota,ganho,nome,href){
 					$('#texto-modal').append('<p>Fans perdidos: <em class="azul">'+ganhofan+'</em></p>');
 				}
 					if(localStorage.getItem('salario')){
-						$('#texto-modal').html('<p>Salário: <em class="verde"> +$'+sal()+'</em><br>');
+						$('#texto-modal').append('<p>Salário: <em class="verde"> +$'+sal()+'</em><br>');
 						
 						
 					}
-						if(localStorage.getItem('vezes')>=10){
-						localStorage.setItem('vezes',0);
-						aumentasalario(1000);
-						maisc();
-						promocao();
-					}
+						
    						$('#texto-modal').append('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+taxa+'</em><br>');
-   						if(localStorage.getItem('salario'))$('#texto-modal').append('<p>Taxa pega pela Teknisa: <em class="vermelho">-$'+-(ganho-taxa)+'</em><br>');
+   						if(localStorage.getItem('salario'))$('#texto-modal').append('<p>Taxa pega pela Teknisa: <em class="vermelho">-$'+Math.floor(2*taxa/3)+'</em><br>');
    						$('#texto-modal').append('<p>Valor das contas: <em class="vermelho"> -$4000</em>');
    						$('#texto-modal').append('<p>========================================</p>'); 
    						
@@ -601,6 +593,7 @@ function maisfan(ganho){
 }
 function resetar(){
 		localStorage.setItem('dinheiro',10000);
+		localStorage.setItem('emprego',0);
 		localStorage.setItem('conhecimento','HTML');
 		localStorage.setItem('pixel','<img src="imgs/old.png" id="avatar">');
 		localStorage.setItem('vezes',0);

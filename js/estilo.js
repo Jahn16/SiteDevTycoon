@@ -14,7 +14,9 @@ $('#opcoes').on('click','.direita',function(){
 	limpa();
 	$('#opcoes').html('<img src="imgs/larrow.png" class="esquerda"><h1 class="config">Propostas de Emprego</h1>');
 	
-	$('#opcoes').append('<table><tr><th>Empresa</th><th>Salário</th><th>Promoção</th></tr><tr id="teknisa"><td>Teknisa</td><td>$3.000</td><td>$6.000</td></tr></table>');
+	if(pegafan()>=500)$('#opcoes').append('<li id="teknisa" >Teknisa</li>');
+
+	else $('#opcoes').append('<p>Parece que você não chamou atenção de nenhuma empresa ainda. <br>Consiga 500 fãs para desbloquear essa aba.</p>');
 	
 });
 $('#opcoes').on('click','.esquerda',function(){
@@ -22,15 +24,17 @@ $('#opcoes').on('click','.esquerda',function(){
 	setup();
 });
 $('#opcoes').on('click','#teknisa',function(){
-	chamarcompra('Confirmar contratação','Tem certeza que deseja mesmo trabalhar na <strong>Teknisa</strong>?','Confirmar');
+	chamarcompra('Confirmar contratação','Tem certeza que deseja mesmo trabalhar na <strong>Teknisa</strong>?<br><br><strong>Salário:</strong><em class="verde">+$3000</em><br><strong>Aumento de salário por promoção:</strong><em class="verde">+$1000</em>','Confirmar');
 	
 		
-		$('comprar-botao').click(function(){
+		$('#comprar').on('click','#comprar-botao',function(){
 			localStorage.setItem('emprego',1);
+			localStorage.setItem('salario',3000);
 		});
 
 });
 function start(){
+	if(localStorage.getItem('emprego')==0){
 	$('#opcoes').html('<img src="imgs/rarrow.png" class="direita"><h1 class="config">Mudar Setup</h1>');
 		let status = pegac();
 		if(status==0){
@@ -44,6 +48,19 @@ function start(){
 		}
 			$('#opcoes').append('<h4>Status do Setup = '+status+'</h2><br><br><br><br>');
 			$('#opcoes').append('<button id="setup" class="btn btn-success">Upgrade de Setup</button>');
+	}
+	else {
+		$('#opcoes').html('<img src="imgs/rarrow.png" class="direita"><h1 class="config">Situação no atual emprego</h1>');
+		let empresa =  localStorage.getItem('emprego');
+		if(empresa==1){
+			empresa='Teknisa';
+		}
+		$('#opcoes').append('<ul><li>Atual empresa : <strong>'+empresa+'</strong></li><li>Salário: <em class="verde">+$'+sal()+'</em></li><li>Sites feitos para próxima promoção:</li><br><div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: '+vez()+'%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div></div></ul>');
+		if(vez()>=10){
+		$('#opcoes').append('<button id="promoção">Pegar Promoção</button>');	
+		}
+	}
+
 			
 }
 function pegac(){
@@ -96,4 +113,7 @@ function chamarcompra(titulo,texto,botao){
     $('#comprar-titulo').html('Confirmar compra');
     $('#comprar-botao').html('Comprar');
 	})
+}
+function vez(){
+	return parseInt(localStorage.getItem('vezes'));
 }
