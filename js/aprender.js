@@ -13,7 +13,7 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$15.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-
+				
 			if(localStorage.getItem('conhecimento').search('CSS')==-1){
 
 			if(pegadinheiro()>=15000){
@@ -39,6 +39,7 @@ $('#opcoes').on("click", "#aprender", function() {
 		$('#myModal').modal();
 		
 	}
+	
 	});
 	});
 
@@ -47,7 +48,8 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$100.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-
+				
+				
 			if(localStorage.getItem('conhecimento').search('JS')==-1){
 
 			if(pegadinheiro()>=100000){
@@ -60,10 +62,11 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#titulo-modal').html('Erro na compra');
 			$('#texto-modal').html('Não há dinheiro suficiente para comprar.');
 			$('#myModal').modal();
+			
 		}
 	
 		
-	
+		
 		
 		}
 		else {
@@ -73,6 +76,7 @@ $('#opcoes').on("click", "#aprender", function() {
 		$('#myModal').modal();
 		
 	}
+	return 0;
 	});
 	});
 
@@ -81,9 +85,9 @@ $('#opcoes').on("click", "#aprender", function() {
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$200.000</em>?');
 			$('#comprar').modal();
 			$('#comprar').on('click','#comprar-botao',function(){
-
+			
 			if(localStorage.getItem('conhecimento').search('PHP')==-1){
-
+				
 			if(pegadinheiro()>=200000){
 			maisdinheiro(-200000);
 			localStorage.setItem('conhecimento',localStorage.getItem('conhecimento')+'+PHP');
@@ -107,6 +111,7 @@ $('#opcoes').on("click", "#aprender", function() {
 		$('#myModal').modal();
 		
 	}
+	
 	});
 	});
 });
