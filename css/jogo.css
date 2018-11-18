@@ -26,6 +26,7 @@ html {
 	width: 100%;
 	transform: scale(0.5);
 	transition: .8s;
+	border: solid 1px black;
 }
 
 
@@ -34,6 +35,9 @@ html {
 	transition: .8s;
 	
 
+}
+.desativado {
+	color:gray;
 }
 .sobrepor {
 	z-index: 3;
@@ -91,7 +95,7 @@ html {
 }
 #opcoes li {
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 35px;
 
 }
 ul {
@@ -142,13 +146,20 @@ ul {
 	margin-left: auto;
 
 }
-
+#admin {
+	position: absolute;
+	padding: 0.5%;
+	margin-top:0%;
+	margin-left: 90%;
+	width: 10%;
+}
 #opcoes input:disabled {
 	color:gray;	
 }
 #enviar {
 	margin-top: 15%;
 }
+
 input[type="text"]{
 
     display: inline-block;
@@ -269,6 +280,9 @@ position: absolute;left:0;
 }
 #emprego {
 	height: 6vh;
+}
+.empregos:hover {
+	color: green;
 }
 table {
     font-family: arial, sans-serif;

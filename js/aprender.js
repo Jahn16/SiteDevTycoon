@@ -12,8 +12,9 @@ $('#opcoes').on("click", "#aprender", function() {
 			
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$15.000</em>?');
 			$('#comprar').modal();
-			$('#comprar').on('click','#comprar-botao',function(){
-				
+
+			$('#comprar').off('click', '#comprar-botao').on('click','#comprar-botao',function(){
+			
 			if(localStorage.getItem('conhecimento').search('CSS')==-1){
 
 			if(pegadinheiro()>=15000){
@@ -45,9 +46,9 @@ $('#opcoes').on("click", "#aprender", function() {
 
 		$('#opcoes').on('click','#js',function(){
 			
-			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$100.000</em>?');
+			$('#comprar-texto').html('Deseja comprar a linguagem <strong>JS</strong> por <em class="vermelho">$100.000</em>?');
 			$('#comprar').modal();
-			$('#comprar').on('click','#comprar-botao',function(){
+			$('#comprar').off('click', '#comprar-botao').on('click','#comprar-botao',function(){
 				
 				
 			if(localStorage.getItem('conhecimento').search('JS')==-1){
@@ -84,7 +85,7 @@ $('#opcoes').on("click", "#aprender", function() {
 			
 			$('#comprar-texto').html('Deseja comprar a linguagem <strong>CSS</strong> por <em class="vermelho">$200.000</em>?');
 			$('#comprar').modal();
-			$('#comprar').on('click','#comprar-botao',function(){
+			$('#comprar').off('click', '#comprar-botao').on('click','#comprar-botao',function(){
 			
 			if(localStorage.getItem('conhecimento').search('PHP')==-1){
 				
@@ -127,4 +128,31 @@ function voltamenu(){
 	
 	$('#dinheiro').html('$'+pegadinheiro());
 	$('#fansh2').html('<img src="imgs/Users.png" id="fansimg"><h2 id="fans">'+pegafan()+'</h2>');
+}
+function admin(){
+	$('body').append('<div id="senha"><input type="text" id="admin"></input></div>');
+	let senha = document.getElementById("admin");
+
+	senha.addEventListener("keydown", function (e) {
+    	if (e.keyCode === 13) {  
+        validar(e);
+   	 }
+   	 	if (e.keyCode === 27) {  
+        $('#senha').empty();
+   	 }
+});
+
+function validar(e) {
+    let senha = e.target.value;
+  	if(senha=='admin'){
+  		localStorage.setItem('admin','1');
+
+  	}
+  	if(senha=='us'){
+  		localStorage.setItem('admin','0');
+
+  	}
+  	$('#senha').empty();
+
+}
 }

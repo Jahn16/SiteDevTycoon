@@ -5,18 +5,21 @@ document.onkeypress = function(evt) {
     evt = evt || window.event;
     let charCode = evt.keyCode || evt.which;
     let charStr = String.fromCharCode(charCode);
-    if(charStr == 'p'){
-    	som(0);
-    }
-    if(charStr == 'm'){
-    	musica[c].pause();
-    }
-     if(charStr == 'x'){
+   
+      if(charStr == 'x'&&localStorage.getItem('admin')==1){
         maisdinheiro(+10000);
         $('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
     }
-    if(charStr == 'r'){
+    if(charStr == 'r'&&localStorage.getItem('admin')==1){
         resetar();
+    }
+     if(charStr == 'k'){
+        admin();
+    }
+
+     if(charStr == 'f' &&localStorage.getItem('admin')==1){
+       localStorage.setItem('fans',1000);
+       $('#fans').html(localStorage.getItem('fans'));
     }
 };
 

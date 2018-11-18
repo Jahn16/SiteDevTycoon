@@ -17,6 +17,7 @@ let loading = new Audio('audio/sons/loading.mp3');
 $(document).ready(function() {
 	if (!localStorage.getItem('dinheiro')) {
 		resetar();
+		tutorial();
 	}
 	$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 	$('#fans').html(pegafan());
@@ -238,7 +239,23 @@ $(document).ready(function() {
 				$('#pa1').click(function(){
 					limpa();
 					programacoes();
-
+					$('#inputjs').click(function() {
+  						if ($(this).is(':checked')) {
+  							if(localStorage.getItem('conhecimento').search('CSS')!=-1){
+  								$("#inputcss").prop("checked", true);
+  							}
+  				}
+  				});	
+  					$('#inputphp').click(function() {
+  						if ($(this).is(':checked')) {
+  							if(localStorage.getItem('conhecimento').search('CSS')!=-1&&localStorage.getItem('conhecimento').search('JS')){
+  								$("#inputjs").prop("checked", true);
+  								$("#inputcss").prop("checked", true);
+  							}
+  				}		
+				
+  				});
+					
 					$('#linguagem').click(function(){
 						let vcss = $( "input[type=checkbox][name=css]:checked" ).val();
 						let vjs =  $( "input[type=checkbox][name=js]:checked" ).val();
@@ -246,10 +263,11 @@ $(document).ready(function() {
 						vcss = confere(vcss);
 						vjs= confere(vjs);
 						vphp = confere(vphp);
+						
 						nomedosite();
-						let href= 'https://ovelhahtml.neocities.org/';
-						if(vcss==1) href = 'https://ovelhacss.neocities.org/';
-						if(vjs==1) href = 'https://animewiki2.neocities.org/';
+						let href= 'sites/ovelha/html.html';
+						if(vcss==1) href = 'sites/ovelha/css.html';
+						if(vjs==1) href = 'sites/ovelha/js.html';
 						$('#enviar').click(function(){
 							if($('#nomedosite').val()!=''){
 							teclado.pause();
@@ -281,7 +299,9 @@ $(document).ready(function() {
 						vjs= confere(vjs);
 						vphp = confere(vphp);
 						nomedosite();
-
+						let href= 'sites/ovelha/html.html';
+						if(vcss==1) href = 'sites/ovelha/css.html';
+						if(vjs==1) href = 'sites/ovelha/js.html';
 						$('#enviar').click(function(){
 							teclado.pause();
 							let nota=6+vcss+vjs+vphp;
@@ -291,7 +311,7 @@ $(document).ready(function() {
 							let ganho = Math.floor(Math.random() * nota*700);
 							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
 							
-							barra(0,nota,ganho,nome);
+							barra(0,nota,ganho,nome,href);
    			 				});
 						});	
 					});
@@ -307,8 +327,11 @@ $(document).ready(function() {
 						vjs= confere(vjs);
 						vphp = confere(vphp);
 						nomedosite();
-
+						let href= 'sites/ovelha/html.html';
+						if(vcss==1) href = 'sites/ovelha/css.html';
+						if(vjs==1) href = 'sites/ovelha/js.html';
 						$('#enviar').click(function(){
+
 							teclado.pause();
 							let nota=5+vcss+vjs+vphp;
 							let nome = $('#nomedosite').val();
@@ -317,7 +340,7 @@ $(document).ready(function() {
 							let ganho = Math.floor(Math.random() * nota*700);
 							while(ganho<nota*600) ganho = Math.floor(Math.random() * nota*700);
 							
-							barra(0,nota,ganho,nome);
+							barra(0,nota,ganho,nome,href);
    			 				});
 						});	
 					});
@@ -396,41 +419,47 @@ function programacoes(){
 				$('#opcoes').append("<label class='container'>HTML<input type='checkbox'  checked required><span class='checkmark'></span><label>");
 				let CSS = localStorage.getItem('conhecimento').search('CSS');
 				if(CSS==-1){
-				$('#opcoes').append("<label class='container'>CSS<input type='checkbox' value='0' id='css' disabled><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container desativado' >CSS<input type='checkbox' value='0' id='css' disabled><span class='checkmark'></span><label>");
 			}
 				else{
-					 $('#opcoes').append("<label class='container'>CSS<input type='checkbox' value='1' name='css'><span class='checkmark'></span><label>");
+					 $('#opcoes').append("<label class='container'>CSS<input type='checkbox' value='1' name='css' id='inputcss'><span class='checkmark'></span><label>");
 				
 				}
 				let JS = localStorage.getItem('conhecimento').search('JS');
 				if(JS!=-1){
 
-				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='1' name='js'><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='1' name='js' id='inputjs'><span class='checkmark'></span><label>");
 			}
 			else{
-				$('#opcoes').append("<label class='container'>JavaScript<input type='checkbox' value='0' name='js' disabled><span class='checkmark'></span><label>");
+				$('#opcoes').append("<label class='container desativado' >JavaScript<input type='checkbox' value='0' name='js' disabled><span class='checkmark'></span><label>");
 			}
 				let PHP = localStorage.getItem('conhecimento').search('PHP');
 				if(PHP==-1){
-					$('#opcoes').append("<label class='container'>PHP<input type='checkbox' value='0' id='php' disabled><span class='checkmark'></span><label>");
+					$('#opcoes').append("<label class='container desativado' >PHP<input type='checkbox' value='0' id='inputphp' disabled><span class='checkmark'></span><label>");
 				}
 				else{
-					 $('#opcoes').append("<label class='container'>PHP<input type='checkbox' value='1' name='php'><span class='checkmark'></span><label>");
+					 $('#opcoes').append("<label class='container'>PHP<input type='checkbox' value='1' name='php' id='inputphp'><span class='checkmark'></span><label>");
 				}
 				$('#opcoes').append('<button type="button" class="btn btn-info" id="linguagem">Próximo</button>');
 
 }
 function notadosite(nota,ganho,nome,href){
 	let taxa = ganho;
+	let empresa =  localStorage.getItem('emprego');
 	if(localStorage.getItem('emprego')!=0) ganho = Math.floor(ganho/3);
-	
+	if(empresa==1){
+			empresa='Teknisa';
+		}
+		if(empresa==2){
+			empresa='Google';
+		}
 	
 	let renda = ganho+sal()-4000+pegafan();
 	let ganhofan = Math.floor((renda-pegafan())/3);
 	if(ganhofan+pegafan()<0) ganhofan=-(pegafan());
 	
 	if(sound==0)beep.play();
-
+					
 					let nota1 = calculonota(nota);
 					let nota2 = calculonota(nota);
 					let nota3 = calculonota(nota);
@@ -498,7 +527,7 @@ function notadosite(nota,ganho,nome,href){
 					}
 						
    						$('#texto-modal').append('<p>Lucro arrecado com '+nome+': <em class="verde"> +$'+taxa+'</em><br>');
-   						if(localStorage.getItem('salario'))$('#texto-modal').append('<p>Taxa pega pela Teknisa: <em class="vermelho">-$'+Math.floor(2*taxa/3)+'</em><br>');
+   						if(localStorage.getItem('salario'))$('#texto-modal').append('<p>Taxa pega pela '+empresa+': <em class="vermelho">-$'+Math.floor(2*taxa/3)+'</em><br>');
    						$('#texto-modal').append('<p>Valor das contas: <em class="vermelho"> -$4000</em>');
    						$('#texto-modal').append('<p>========================================</p>'); 
    						
@@ -599,9 +628,17 @@ function resetar(){
 		localStorage.setItem('vezes',0);
 		localStorage.setItem('fans',0);
 		localStorage.setItem('cp',0);
+		localStorage.setItem('trabalho',0);
 		localStorage.removeItem('e');
 		localStorage.removeItem('d');
+		localStorage.removeItem('salario');
 		$('#dinheiro').html('$'+localStorage.getItem('dinheiro'));
 		$('#fans').html(pegafan());
 		$('#sprite').html(localStorage.getItem('pixel'));
+		tutorial();
+}
+function tutorial(){
+			$('#titulo-modal').html('Tutorial');
+				$('#texto-modal').html('<iframe width="100%" height="300px" src="https://www.youtube.com/embed/gVVziBUZVEw"></iframe>');
+				$('#myModal').modal();
 }
